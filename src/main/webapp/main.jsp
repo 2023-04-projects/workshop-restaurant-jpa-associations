@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-    // Check if the user is logged in
     String user = (String) session.getAttribute("user");
     if (user == null) {
-        // Redirect to login page if session is not set
         response.sendRedirect("login.jsp");
     }
 %>
@@ -57,14 +55,14 @@
         th {
             background-color: #f2f2f2;
         }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            margin: 5px 0;
-        }
     </style>
+    <script>
+        function navigateTo(selectedItem) {
+            if (selectedItem !== "default") {
+                window.location.href = selectedItem;
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="frame">
@@ -81,33 +79,37 @@
             </tr>
             <tr>
                 <td>
-                    <ul>
-                        <li><a href="Idly">Idly</a></li>
-                        <li><a href="vada">vada</a></li>
-                        <li><a href="Dosa">dosa</a></li>
-                        <li><a href="pongal">pongal</a></li>
-                    </ul>
+                    <select onchange="navigateTo(this.value)">
+                        <option value="default">Select Tiffen</option>
+                        <option value="Idly">Idly</option>
+                        <option value="vada">Vada</option>
+                        <option value="Dosa">Dosa</option>
+                        <option value="pongal">Pongal</option>
+                    </select>
                 </td>
                 <td>
-                    <ul>
-                        <li><a href="Meals">meals</a></li>
-                        <li><a href="Fried Rice">Fried Rice</a></li>
-                        <li><a href="Curd Rice">Curd Rice</a></li>
-                    </ul>
+                    <select onchange="navigateTo(this.value)">
+                        <option value="default">Select Lunch</option>
+                        <option value="Meals">Meals</option>
+                        <option value="Fried Rice">Fried Rice</option>
+                        <option value="Curd Rice">Curd Rice</option>
+                    </select>
                 </td>
                 <td>
-                    <ul>
-                        <li><a href="Tea">tea</a></li>
-                        <li><a href="Biscuits">Biscuits</a></li>
-                        <li><a href="Samosa">Samosa</a></li>
-                    </ul>
+                    <select onchange="navigateTo(this.value)">
+                        <option value="default">Select Snack</option>
+                        <option value="Tea">Tea</option>
+                        <option value="Biscuits">Biscuits</option>
+                        <option value="Samosa">Samosa</option>
+                    </select>
                 </td>
                 <td>
-                    <ul>
-                        <li><a href="Chapati">Chapati</a></li>
-                        <li><a href="Pulav">Pulav</a></li>
-                        <li><a href="Paneer Curry">Paneer Curry</a></li>
-                    </ul>
+                    <select onchange="navigateTo(this.value)">
+                        <option value="default">Select Dinner</option>
+                        <option value="Chapati">Chapati</option>
+                        <option value="Pulav">Pulav</option>
+                        <option value="Paneer Curry">Paneer Curry</option>
+                    </select>
                 </td>
             </tr>
         </table>
