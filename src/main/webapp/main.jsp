@@ -37,12 +37,10 @@ th {
 </style>
 </head>
 <body>
-	<div class="header">
-		<h2>KHADRI RESTAURANT</h2>
-		<div>
-			User:
-			<%=request.getParameter("user") != null ? request.getParameter("user") : "Guest"%></div>
-	</div>
+		 <div class="header">
+        <h2>KHADRI RESTAURANT</h2>
+        <div>User: <%= user %></div>
+    </div>
 	<table>
 		<tr>
 			<th>
