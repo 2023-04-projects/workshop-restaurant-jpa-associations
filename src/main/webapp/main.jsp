@@ -17,6 +17,7 @@
         }
         th, td {
             border: 1px solid black;
+            background-color: #bc8f8f;
             text-align: center;
             padding: 8px;
         }
@@ -36,9 +37,9 @@
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            background-color: #ffb6c1;
+            min-width: 100px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0,2);
             z-index: 1;
         }
         .dropdown-content a {
@@ -48,23 +49,31 @@
             display: block;
         }
         .dropdown-content a:hover {
-            background-color: #f1f1f1;
-        }
+			 background-color: #bc8f8f;
+         }
         .dropdown:hover .dropdown-content {
             display: block;
         }
         .dropdown:hover .dropbtn {
-            background-color: #3e8e41;
+            background-color: #bc8f8f;
+        }
+        .dropbtn {
+        width: 320px;
+ 		height: 50px;
+ 		 background-color: #bc8f8f;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-    <center> 
+<table>
+<tr><th>
+    <div>
         <h2>KHADRI RESTAURANT</h2>
-    </center>
         <div class="user-info">User: <%= user %></div>
     </div>
+    </th>
+    </tr>
+</table>
     <table>
         <tr>
             <th>
