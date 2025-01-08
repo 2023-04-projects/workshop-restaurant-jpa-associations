@@ -30,6 +30,23 @@
             text-align: right;
             margin-right: 10px;
         }
+		        .logout-form {
+		    		display: inline;
+		}
+
+		.logout-button {
+		    margin-left: 10px;
+		    padding: 5px 10px;
+		    background-color: #bc8f8f;
+		    color: white;
+		    border: none;
+		    cursor: pointer;
+		}
+
+		.logout-button:hover {
+		    background-color: #a56f6f;
+		}
+        
         .dropdown {
             position: relative;
             display: inline-block;
@@ -69,7 +86,12 @@
 <tr><th>
     <div>
         <h2>KHADRI RESTAURANT</h2>
-        <div class="user-info">User: <%= user %></div>
+        <div class="user-info">User: <%= user %>
+         <form action="logout.jsp" method="post">
+                <button type="submit">Logout</button>
+            </form>
+        
+        </div>
     </div>
     </th>
     </tr>
