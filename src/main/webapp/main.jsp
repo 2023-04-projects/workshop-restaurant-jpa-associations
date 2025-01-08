@@ -13,6 +13,7 @@ if (user == null) {
 <style>
 table {
 	width: 100%;
+	height: 100%;
 	border-collapse: collapse;
 }
 
@@ -76,13 +77,28 @@ th, td {
 	height: 50px;
 	background-color: #bc8f8f;
 }
+
+.footer-image {
+	text-align: center;
+	margin-top: 20px;
+	width: 20px;
+	height: 50px;
+}
+
+iframe {
+	width: 100%;
+	height: 500px;
+	border: none;
+}
 </style>
 </head>
 <body>
+
 	<table>
 		<tr>
 			<th>
-				<div>
+				<div class="header">
+					
 					<h2>KHADRI RESTAURANT</h2>
 					<div class="user-info">
 						User:
@@ -95,15 +111,16 @@ th, td {
 			</th>
 		</tr>
 	</table>
+
 	<table>
 		<tr>
 			<th>
 				<div class="dropdown">
 					<button class="dropbtn">Salads</button>
 					<div class="dropdown-content">
-						<a href="Veg_salad">Veg_salad</a> <a href="Fruits_salad">Fruits_salad</a>
-						<a href="Non_veg_salad">non_veg_salad</a>
-
+						<a href="Veg_salad" target="content-frame">Veg_salad</a> <a
+							href="Fruits_salad" target="content-frame">Fruits_salad</a> <a
+							href="Non_veg_salad" target="content-frame">non_veg_salad</a>
 					</div>
 				</div>
 			</th>
@@ -111,8 +128,10 @@ th, td {
 				<div class="dropdown">
 					<button class="dropbtn">Tiffens</button>
 					<div class="dropdown-content">
-						<a href="Idly">Idly</a> <a href="vada">Vada</a> <a href="Dosa">Dosa</a>
-						<a href="pongal">Pongal</a>
+						<a href="idly.jsp" target="content-frame">Idly</a> <a href="vada"
+							target="content-frame">Vada</a> <a href="Dosa"
+							target="content-frame">Dosa</a> <a href="pongal"
+							target="content-frame">Pongal</a>
 					</div>
 				</div>
 			</th>
@@ -120,8 +139,10 @@ th, td {
 				<div class="dropdown">
 					<button class="dropbtn">Lunch</button>
 					<div class="dropdown-content">
-						<a href="Meals">Meals</a> <a href="Fried_rice">Fried_rice</a> <a
-							href="Curd_rice">Curd_rice</a> <a href="Biryani">Biryani</a>
+						<a href="Meals" target="content-frame">Meals</a> <a
+							href="Fried_rice" target="content-frame">Fried_rice</a> <a
+							href="Curd_rice" target="content-frame">Curd_rice</a> <a
+							href="Biryani" target="content-frame">Biryani</a>
 					</div>
 				</div>
 			</th>
@@ -129,8 +150,10 @@ th, td {
 				<div class="dropdown">
 					<button class="dropbtn">Snacks</button>
 					<div class="dropdown-content">
-						<a href="Tea">Tea</a> <a href="Coffee">Coffee</a> <a href="Samosa">Samosa</a>
-						<a href="Biscuits">Biscuits</a>
+						<a href="tea.jsp" target="content-frame">Tea</a>
+						<a href="coffee.jsp" target="content-frame">Coffee</a>
+						<a href="samosa.jsp"target="content-frame">Samosa</a>
+					   <a href="biscuits.jsp"target="content-frame">Biscuits</a>
 					</div>
 				</div>
 			</th>
@@ -138,12 +161,17 @@ th, td {
 				<div class="dropdown">
 					<button class="dropbtn">Dinner</button>
 					<div class="dropdown-content">
-						<a href="Chapati">Chapati</a> <a href="Butternaan">Butternaan</a>
-						<a href="Rice">Rice</a>
+						<a href="Chapati" target="content-frame">Chapati</a> <a
+							href="Butternaan" target="content-frame">Butternaan</a> <a
+							href="Rice" target="content-frame">Rice</a>
 					</div>
 				</div>
 			</th>
 		</tr>
 	</table>
+	
+
+	<iframe name="content-frame" src="" id="content-frame"></iframe>
+
 </body>
 </html>
