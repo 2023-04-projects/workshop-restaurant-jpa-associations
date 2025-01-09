@@ -19,7 +19,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/placeOrder")
 public class OrderServlet extends HttpServlet {
-
+	
 	private static final long serialVersionUID = 1L;
 	private EntityManagerFactory entityManagerFactory;
 
