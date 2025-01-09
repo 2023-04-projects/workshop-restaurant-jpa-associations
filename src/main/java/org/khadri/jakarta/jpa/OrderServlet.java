@@ -39,7 +39,6 @@ public class OrderServlet extends HttpServlet {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 
 		entityManager.getTransaction().begin();
-
 		User user = new User();
 
 		Snacks snacks = new Snacks();
