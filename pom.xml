@@ -6,7 +6,7 @@
 
 	<groupId>org.khadri.jakarta.jpa</groupId>
 	<artifactId>workshop-restaurant-jpa-associations</artifactId>
-	<version>0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 
 	<name>workshop-restaurant-jpa-associations</name>
@@ -24,6 +24,11 @@
 	</properties>
 
 	<dependencies>
+	<dependency>
+			<groupId>jakarta.persistence</groupId>
+			<artifactId>jakarta.persistence-api</artifactId>
+			<version>3.2.0</version>
+		</dependency>
 		<dependency>
 			<groupId>jakarta.servlet</groupId>
 			<artifactId>jakarta.servlet-api</artifactId>

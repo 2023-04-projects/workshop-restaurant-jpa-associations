@@ -5,4 +5,30 @@
 	<welcome-file-list>
 		<welcome-file>login.jsp</welcome-file>
 	</welcome-file-list>
+	
+	<servlet>
+		<servlet-name>order</servlet-name>
+		<servlet-class>org.khadri.jakarta.servlet.OrderLunchServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Order</servlet-name>
+		<url-pattern>/meals</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>Order</servlet-name>
+		<url-pattern>/fried_rice</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>Order</servlet-name>
+		<url-pattern>/curd_rice</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Order</servlet-name>
+		<url-pattern>/biryani</url-pattern>
+	</servlet-mapping>
+	
+	
 </web-app>
