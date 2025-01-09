@@ -52,7 +52,7 @@
 </head>
 <body>
     <h1>Order Snacks </h1>
-    <form action="SnacksServlet" method="post">
+    <form action="coffee" method="post">
         <table>
             <tr>
                 <td>Snack Name:</td>

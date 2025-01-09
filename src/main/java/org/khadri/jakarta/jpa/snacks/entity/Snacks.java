@@ -9,6 +9,7 @@ public class Snacks {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="snack_id")
     private int snackId;
 
     private String name;
