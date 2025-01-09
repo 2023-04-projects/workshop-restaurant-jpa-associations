@@ -35,45 +35,47 @@
             background-color: #a05252;
         }
     </style>
-    <script>
-        function calculateTotalPrice() {
-            var quantity = document.getElementById("quantity").value;
-            var price = document.getElementById("price").value;
-
-            if (quantity && !isNaN(quantity)) {
-                var totalPrice = quantity * price;
-
-                document.getElementById("totalPrice").value = totalPrice;
-            } else {
-                document.getElementById("totalPrice").value = "";
-            }
-        }
-    </script>
+   <script>
+	function calculateTotalPrice() {
+		var quantity = document.getElementById("quantity").value;
+		var price = document.getElementById("price").value;
+		if (quantity && !isNaN(quantity)) {
+			var totalPrice = quantity * price;
+			document.getElementById("totalPrice").value = totalPrice;
+		} else {
+			document.getElementById("totalPrice").value = "";
+		}
+	}
+</script>
 </head>
 <body>
-    <h1>Order Lunch </h1>
-    <form action="meals" method="post">
-        <table>
-            <tr>
-                <td>Lunch Name:</td>
-                <td><input type="text" name="lunchName" value="Meals" readonly></td>
-            </tr>
-            <tr>
-                <td>Quantity:</td>
-                <td><input type="number" id="quantity" name="quantity" required onchange="calculateTotalPrice()"></td>
-            </tr>
-            <tr>
-                <td>Price (per one):</td>
-                <td><input type="text" id="price" name="price" value="60" readonly></td>
-            </tr>
-            <tr>
-                <td>Total Price:</td>
-                <td><input type="text" id="totalPrice" name="totalPrice" readonly></td>
-            </tr>
-            <tr>
-                <td colspan="2"><button type="submit">Order</button></td>
-            </tr>
-        </table>
-    </form>
+	<h1>Order Lunch</h1>
+	<form action="meals" method="post">
+		<table>
+			<tr>
+				<td>Iteam Name:</td>
+				<td><input type="text" name="iteamName" value="Meals"
+					readonly></td>
+			</tr>
+			<tr>
+				<td>Quantity:</td>
+				<td><input type="number" id="quantity" name="quantity" required
+					onchange="calculateTotalPrice()"></td>
+			</tr>
+			<tr>
+				<td>Price (per one):</td>
+				<td><input type="text" id="price" name="price" value="60"
+					readonly></td>
+			</tr>
+			<tr>
+				<td>Total Price:</td>
+				<td><input type="text" id="totalPrice" name="totalPrice"
+					readonly></td>
+			</tr>
+			<tr>
+				<td colspan="2"><button type="submit">Order</button></td>
+			</tr>
+		</table>
+	</form>
 </body>
 </html>

@@ -20,6 +20,8 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/OrderLunchServlet")
 public class OrderLunchServlet extends HttpServlet {
 
+		private static final long serialVersionUID = 1L;
+
 	public class OrderServlet extends HttpServlet {
 
 		private static final long serialVersionUID = 1L;

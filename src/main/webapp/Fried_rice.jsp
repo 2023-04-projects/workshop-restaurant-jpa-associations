@@ -56,7 +56,7 @@
         <table>
             <tr>
                 <td>Lunch Name:</td>
-                <td><input type="text" name="lunchName" value="Fried_rice" readonly></td>
+                <td><input type="text" name="IteamName" value="Fried_rice" readonly></td>
             </tr>
             <tr>
                 <td>Quantity:</td>

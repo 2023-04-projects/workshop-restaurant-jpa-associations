@@ -20,7 +20,7 @@ public class Lunch {
 
 	private double price;
 
-	@ManyToMany(mappedBy = "lunch")
+	@ManyToMany(mappedBy = "Lunch")
 	private List<Order> orders;
 
 	public int getLunchId() {
