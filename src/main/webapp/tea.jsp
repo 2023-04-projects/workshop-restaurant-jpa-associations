@@ -60,7 +60,7 @@ button:hover {
 	<h1>Order Snacks</h1>
 	<form action="tea" method="post">
 		<table>
-
+		
 			<tr>
 				<td>Snack Name:</td>
 				<td><input type="text" name="snackName" value="Tea" readonly></td>

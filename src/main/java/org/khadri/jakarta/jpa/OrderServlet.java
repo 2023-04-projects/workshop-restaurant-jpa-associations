@@ -70,5 +70,4 @@ public class OrderServlet extends HttpServlet {
 
 		resp.getWriter().write("Order placed successfully!");
 	}
-
 }
