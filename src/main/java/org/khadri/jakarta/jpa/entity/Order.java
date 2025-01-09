@@ -1,4 +1,4 @@
-package org.khadri.jakarta.jpa;
+package org.khadri.jakarta.jpa.entity;
 
 import java.util.List;
 

@@ -1,12 +1,12 @@
-package org.khadri.jakarta.servlet;
+package org.khadri.jakarta.jpa.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.khadri.jakarta.jpa.Lunch;
-import org.khadri.jakarta.jpa.Order;
-import org.khadri.jakarta.jpa.User;
+import org.khadri.jakarta.jpa.entity.Lunch;
+import org.khadri.jakarta.jpa.entity.Order;
+import org.khadri.jakarta.jpa.entity.User;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
