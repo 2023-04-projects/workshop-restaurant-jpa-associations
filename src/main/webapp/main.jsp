@@ -12,7 +12,7 @@
     <title>KHADRI RESTAURANT</title>
     <style>
         table {
-            width: 150%;
+            width: 100%;
             border-collapse: collapse;
         }
         th, td {
