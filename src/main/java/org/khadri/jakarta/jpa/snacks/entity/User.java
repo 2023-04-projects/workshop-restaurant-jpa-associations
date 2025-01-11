@@ -12,7 +12,7 @@ public class User {
 	private int userId;
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-	private List<Order> orders;
+	private List<Snack> orders;
 
 	public int getUserId() {
 		return userId;

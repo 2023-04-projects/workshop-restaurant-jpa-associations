@@ -58,12 +58,12 @@ button:hover {
 </head>
 <body>
 	<h1>Order Snacks</h1>
-	<form action="biscuits" method="post">
+	<form action="addcart.jsp" method="post">
 		<table>
 			<tr>
 				<td>Snack Name:</td>
-				<td><input type="text" name="snackName" value="Biscuits"
-					readonly></td>
+				<td><input type="text" name="snackName"
+					value="<%=request.getParameter("snackname")%>" readonly></td>
 			</tr>
 			<tr>
 				<td>Quantity:</td>
@@ -72,7 +72,7 @@ button:hover {
 			</tr>
 			<tr>
 				<td>Price (per one):</td>
-				<td><input type="text" id="price" name="price" value="5"
+				<td><input type="text" id="price" name="price" value="<%=request.getParameter("snackprice")%>"
 					readonly></td>
 			</tr>
 			<tr>
@@ -81,9 +81,12 @@ button:hover {
 					readonly></td>
 			</tr>
 			<tr>
-				<td colspan="2"><button type="submit">Order</button></td>
+				<td colspan="2"><button type="submit">Add to Cart</button></td>
 			</tr>
+			
 		</table>
+		
+		<input type="hidden" name="menuname" value="Snacks">
 	</form>
 </body>
 </html>

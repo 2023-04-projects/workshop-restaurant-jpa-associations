@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.khadri.jakarta.jpa.snacks.entity.Order;
-import org.khadri.jakarta.jpa.snacks.entity.Snacks;
+import org.khadri.jakarta.jpa.snacks.entity.Snack;
 import org.khadri.jakarta.jpa.snacks.entity.User;
 
 import jakarta.persistence.EntityManager;
@@ -41,7 +41,7 @@ public class SnacksOrderServlet extends HttpServlet {
 		entityManager.getTransaction().begin();
 		User user = new User();
 
-		Snacks snacks = new Snacks();
+		Snack snacks = new Snack();
 		snacks.setName(snackName);
 		snacks.setPrice(price);
 
@@ -51,7 +51,7 @@ public class SnacksOrderServlet extends HttpServlet {
 		order.setTotalPrice(totalPrice);
 		order.setUser(user);
 
-		List<Snacks> snacksList = new ArrayList<>();
+		List<Snack> snacksList = new ArrayList<>();
 		snacksList.add(snacks);
 		order.setSnacks(snacksList);
 

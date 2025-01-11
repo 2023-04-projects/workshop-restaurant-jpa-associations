@@ -1,15 +1,22 @@
+<%@page import="com.khadri.jakarta.jpa.form.CheckoutCartForm"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <%
+response.setHeader("Refresh", "50");
 String user = (String) session.getAttribute("user");
 if (user == null) {
 	response.sendRedirect("login.jsp");
 }
+
+CheckoutCartForm cart = (CheckoutCartForm) session.getAttribute("checkout");
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <title>KHADRI RESTAURANT</title>
+
 <style>
 table {
 	width: 100%;
@@ -98,16 +105,20 @@ iframe {
 		<tr>
 			<th>
 				<div class="header">
-					
+
 					<h2>KHADRI RESTAURANT</h2>
 					<div class="user-info">
 						User:
 						<%=user%>
+					
 						<form action="logout.jsp" method="post">
 							<button type="submit">Logout</button>
 						</form>
 					</div>
 				</div>
+				<div class="user-info">
+					 <%=cart.getSnacks() %>
+					</div>
 			</th>
 		</tr>
 	</table>
@@ -150,10 +161,10 @@ iframe {
 				<div class="dropdown">
 					<button class="dropbtn">Snacks</button>
 					<div class="dropdown-content">
-						<a href="tea.jsp" target="content-frame">Tea</a>
-						<a href="coffee.jsp" target="content-frame">Coffee</a>
-						<a href="samosa.jsp"target="content-frame">Samosa</a>
-					   <a href="biscuits.jsp"target="content-frame">Biscuits</a>
+						<a href="snack.jsp?snackname=tea&snackprice=10" target="content-frame">Tea</a> <a
+							href="snack.jsp?snackname=coffee&snackprice=15" target="content-frame">Coffee</a> <a
+							href="snack.jsp?snackname=samosa&snackprice=20" target="content-frame">Samosa</a> <a
+							href="snack.jsp?snackname=biscuit&snackprice=30" target="content-frame">Biscuits</a>
 					</div>
 				</div>
 			</th>
@@ -169,7 +180,7 @@ iframe {
 			</th>
 		</tr>
 	</table>
-	
+
 
 	<iframe name="content-frame" src="" id="content-frame"></iframe>
 

@@ -12,7 +12,7 @@ public class Order {
 	@Column(name = " order_id")
 	private int orderId;
 
-	@Column(name = " snack_name")
+	@Column(name = "snack_name")
 	private String snackName;
 
 	private int quantity;
@@ -26,7 +26,7 @@ public class Order {
 
 	@ManyToMany
 	@JoinTable(name = "order_snack", joinColumns = @JoinColumn(name = "order_id"), inverseJoinColumns = @JoinColumn(name = "snack_id"))
-	private List<Snacks> snacks;
+	private List<Snack> snacks;
 
 	public int getOrderId() {
 		return orderId;
@@ -68,11 +68,11 @@ public class Order {
 		this.user = user;
 	}
 
-	public List<Snacks> getSnacks() {
+	public List<Snack> getSnacks() {
 		return snacks;
 	}
 
-	public void setSnacks(List<Snacks> snacks) {
+	public void setSnacks(List<Snack> snacks) {
 		this.snacks = snacks;
 	}
 }
