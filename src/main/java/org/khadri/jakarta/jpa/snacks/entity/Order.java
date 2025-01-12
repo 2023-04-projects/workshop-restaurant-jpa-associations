@@ -2,31 +2,48 @@ package org.khadri.jakarta.jpa.snacks.entity;
 
 import jakarta.persistence.*;
 
-import java.util.List;
-
 @Entity
-@Table(name = "Orders")
+@Table(name = "snack_order")
 public class Order {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = " order_id")
+	@Column(name = "order_id")
 	private int orderId;
+
+	private double price;
+
+	@Column(name = "menu_name",nullable = false)
+	private String menuName;
 
 	@Column(name = "snack_name")
 	private String snackName;
 
+	@Column(name = "quantity")
 	private int quantity;
 
-	@Column(name = " total_price")
+	@Column(name = "total_price")
 	private double totalPrice;
 
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
 
-	@ManyToMany
-	@JoinTable(name = "order_snack", joinColumns = @JoinColumn(name = "order_id"), inverseJoinColumns = @JoinColumn(name = "snack_id"))
-	private List<Snack> snacks;
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double string) {
+		this.price = string;
+	}
+
+	public String getMenuName() {
+		return menuName;
+	}
+
+	public void setMenuName(String menuName) {
+		this.menuName = menuName;
+	}
 
 	public int getOrderId() {
 		return orderId;
@@ -68,11 +85,4 @@ public class Order {
 		this.user = user;
 	}
 
-	public List<Snack> getSnacks() {
-		return snacks;
-	}
-
-	public void setSnacks(List<Snack> snacks) {
-		this.snacks = snacks;
-	}
 }

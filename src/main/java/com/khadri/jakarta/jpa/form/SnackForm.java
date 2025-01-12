@@ -3,21 +3,22 @@ package com.khadri.jakarta.jpa.form;
 public class SnackForm {
 
 	private String name;
+
 	private Integer qunatity;
 
 	private Double price;
 
 	private Double totalPrice;
 
-	private String type;
+	private String menuName;
 
-	public SnackForm(String name, Integer qunatity, Double price, Double totalPrice, String type) {
+	public SnackForm(String name, Integer qunatity, Double price, Double totalPrice, String menuName) {
 		super();
 		this.name = name;
 		this.qunatity = qunatity;
 		this.price = price;
 		this.totalPrice = totalPrice;
-		this.type = type;
+		this.menuName = menuName;
 	}
 
 	public String getName() {
@@ -36,10 +37,18 @@ public class SnackForm {
 		return totalPrice;
 	}
 
+	public String getMenuName() {
+		return menuName;
+	}
+
+	public void setMenuName(String menuName) {
+		this.menuName = menuName;
+	}
+
 	@Override
 	public String toString() {
 		return "SnackForm [name=" + name + ", qunatity=" + qunatity + ", price=" + price + ", totalPrice=" + totalPrice
-				+ "]";
+				+ ", menuName=" + menuName + " ]";
 	}
 
 }
