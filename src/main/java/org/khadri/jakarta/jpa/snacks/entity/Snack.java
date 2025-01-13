@@ -16,40 +16,39 @@ public class Snack {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "snack_id")
 	private int snackId;
-	@Column(name="snack_name")
+
+	@Column(name = "snack_name")
 	private String snackName;
 
 	private double price;
-	
+
 	@Column(name = "quantity")
 	private int quantity;
-	
+
 	@Column(name = "menu_name")
 	private String menuName;
 
-	
 	@Column(name = "total_price")
 	private double totalPrice;
 
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
-	
-	
+
+	public String getSnackName() {
+		return snackName;
+	}
+
+	public void setSnackName(String snackName) {
+		this.snackName = snackName;
+	}
+
 	public int getSnackId() {
 		return snackId;
 	}
 
 	public void setSnackId(int snackId) {
 		this.snackId = snackId;
-	}
-
-	public String getName() {
-		return snackName;
-	}
-
-	public void setName(String snackName) {
-		this.snackName = snackName;
 	}
 
 	public double getPrice() {
@@ -92,6 +91,4 @@ public class Snack {
 		this.user = user;
 	}
 
-	
-	
 }

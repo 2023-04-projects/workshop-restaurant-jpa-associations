@@ -29,6 +29,10 @@ public class SnackForm {
 		return quantity;
 	}
 
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
+
 	public Double getPrice() {
 		return price;
 	}
@@ -47,8 +51,8 @@ public class SnackForm {
 
 	@Override
 	public String toString() {
-		return "SnackForm [snackName=" + snackName + ", quantity=" + quantity + ", price=" + price + ", totalPrice=" + totalPrice
-				+ ", menuName=" + menuName + " ]";
+		return "SnackForm [snackName=" + snackName + ", quantity=" + quantity + ", price=" + price + ", totalPrice="
+				+ totalPrice + ", menuName=" + menuName + " ]";
 	}
 
 }
