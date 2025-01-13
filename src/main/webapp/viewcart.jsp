@@ -15,11 +15,16 @@ if (cart == null || cart.getSnacks().isEmpty()) {
 <head>
     <title>View Cart</title>
     <style>
+        body {
+            text-align: center;
+        }
+
         table {
             width: 80%;
             margin: 20px auto;
             border-collapse: collapse;
         }
+
         th, td {
             border: 1px solid black;
             text-align: center;
@@ -30,6 +35,13 @@ if (cart == null || cart.getSnacks().isEmpty()) {
         }
         td {
             background-color: #f4c2c2;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            text-align: center;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -57,12 +69,9 @@ if (cart == null || cart.getSnacks().isEmpty()) {
                 <td><%=snack.getQuantity()%></td>
                 <td><%=snack.getPrice()%></td>
                 <td><%=snack.getTotalPrice()%></td>
-                
-                
-                
             </tr>
             <% } %>
-        </tbody>
+         </tbody>
         <tfoot>
             <tr>
                 <th colspan="4">Grand Total</th>
