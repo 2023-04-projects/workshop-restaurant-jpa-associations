@@ -60,8 +60,4 @@ public class OrderServlet extends HttpServlet {
 		resp.getWriter().write("Order placed successfully");
 	}
 
-	@Override
-	public void destroy() {
-		repository.close();
-	}
 }

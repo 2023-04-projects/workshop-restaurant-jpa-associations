@@ -26,7 +26,4 @@ public class EntityRepository {
 		entityManager.getTransaction().commit();
 	}
 
-	public void close() {
-		factory.close();
-	}
 }
