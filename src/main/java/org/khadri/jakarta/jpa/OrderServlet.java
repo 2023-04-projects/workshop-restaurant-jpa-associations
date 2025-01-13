@@ -2,16 +2,12 @@ package org.khadri.jakarta.jpa;
 
 import java.io.IOException;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.khadri.jakarta.jpa.snacks.entity.Order;
 import org.khadri.jakarta.jpa.snacks.entity.Snack;
 import org.khadri.jakarta.jpa.snacks.entity.User;
-import com.khadri.jakarta.jpa.form.SnackForm;
-import com.khadri.jakarta.jpa.form.CheckoutCartForm;
 
-import jakarta.persistence.EntityManager;
+import com.khadri.jakarta.jpa.form.CheckoutCartForm;
+import com.khadri.jakarta.jpa.form.SnackForm;
+
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.servlet.ServletException;
@@ -25,11 +21,12 @@ import jakarta.servlet.http.HttpSession;
 public class OrderServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	private EntityManagerFactory entityManagerFactory;
+	private EntityRepository repository;
+	EntityManagerFactory factory = Persistence.createEntityManagerFactory("PERSISTENCE_UNIT");
 
 	@Override
 	public void init() throws ServletException {
-		entityManagerFactory = Persistence.createEntityManagerFactory("PERSISTENCE_UNIT");
+		repository = new EntityRepository(factory);
 	}
 
 	@Override
@@ -42,53 +39,29 @@ public class OrderServlet extends HttpServlet {
 			return;
 		}
 
-		EntityManager entityManager = entityManagerFactory.createEntityManager();
-		entityManager.getTransaction().begin();
-
 		User user = new User();
-		entityManager.persist(user);
-
-		List<Snack> snackEntities = new ArrayList<>();
-		double grandTotal = 0;
-		StringBuilder snackNames = new StringBuilder();
-		String menuName = "";
+		repository.insertUser(user);
 
 		for (SnackForm snackForm : cart.getSnacks()) {
 			Snack snack = new Snack();
-			snack.setName(snackForm.getName());
+			snack.setName(snackForm.getSnackName());
 			snack.setPrice(snackForm.getPrice());
+			snack.setQuantity(snackForm.getQuantity());
+			snack.setMenuName(snackForm.getMenuName());
+			snack.setTotalPrice(snackForm.getTotalPrice());
 			snack.setUser(user);
 
-			snackEntities.add(snack);
-			entityManager.persist(snack);
-			grandTotal += snackForm.getTotalPrice();
-			snackNames.append(snackForm.getName()).append(", ");
-
-			if (menuName.isEmpty()) {
-				menuName = snackForm.getMenuName();
-			}
-
+			repository.insertSnack(snack);
 		}
-
-		if (snackNames.length() > 0) {
-			snackNames.setLength(snackNames.length() - 2);
-		}
-		Order order = new Order();
-		order.setMenuName(menuName);
-		order.setSnackName(snackNames.toString());
-		order.setPrice(grandTotal);
-		order.setQuantity(cart.getSnacks().size());
-		order.setTotalPrice(grandTotal);
-		order.setUser(user);
-
-		entityManager.persist(order);
-		entityManager.getTransaction().commit();
-		entityManager.close();
 
 		cart.getSnacks().clear();
 		session.setAttribute("checkout", cart);
 
-		resp.getWriter().write("Order placed successfully!");
+		resp.getWriter().write("Order placed successfully");
 	}
 
+	@Override
+	public void destroy() {
+		repository.close();
+	}
 }

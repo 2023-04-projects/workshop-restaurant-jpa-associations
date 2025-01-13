@@ -15,17 +15,6 @@ public class User {
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Snack> snacks = new ArrayList<>();
-	
-	 @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-	    private List<Order> orders = new ArrayList<>();
-	 
-	public List<Order> getOrders() {
-		return orders;
-	}
-
-	public void setOrders(List<Order> orders) {
-		this.orders = orders;
-	}
 
 	public int getUserId() {
 		return userId;

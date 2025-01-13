@@ -53,8 +53,8 @@ if (cart == null || cart.getSnacks().isEmpty()) {
             %>
             <tr>
                 <td><%=snack.getMenuName()%></td>
-                <td><%=snack.getName()%></td>
-                <td><%=snack.getQunatity()%></td>
+                <td><%=snack.getSnackName()%></td>
+                <td><%=snack.getQuantity()%></td>
                 <td><%=snack.getPrice()%></td>
                 <td><%=snack.getTotalPrice()%></td>
                 

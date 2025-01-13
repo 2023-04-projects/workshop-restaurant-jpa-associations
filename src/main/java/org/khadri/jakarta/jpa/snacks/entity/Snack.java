@@ -14,30 +14,42 @@ import jakarta.persistence.Table;
 public class Snack {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="snack_id")
-	private int id;
-	
-	private String name;
+	@Column(name = "snack_id")
+	private int snackId;
+	@Column(name="snack_name")
+	private String snackName;
 
 	private double price;
+	
+	@Column(name = "quantity")
+	private int quantity;
+	
+	@Column(name = "menu_name")
+	private String menuName;
+
+	
+	@Column(name = "total_price")
+	private double totalPrice;
 
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
 	
-	public int getId() {
-		return id;
+	
+	public int getSnackId() {
+		return snackId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setSnackId(int snackId) {
+		this.snackId = snackId;
 	}
+
 	public String getName() {
-		return name;
+		return snackName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String snackName) {
+		this.snackName = snackName;
 	}
 
 	public double getPrice() {
@@ -48,6 +60,30 @@ public class Snack {
 		this.price = price;
 	}
 
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public String getMenuName() {
+		return menuName;
+	}
+
+	public void setMenuName(String menuName) {
+		this.menuName = menuName;
+	}
+
+	public double getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(double totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
 	public User getUser() {
 		return user;
 	}
@@ -56,4 +92,6 @@ public class Snack {
 		this.user = user;
 	}
 
+	
+	
 }
