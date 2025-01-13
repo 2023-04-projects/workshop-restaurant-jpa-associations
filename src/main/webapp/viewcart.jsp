@@ -14,28 +14,36 @@ if (cart == null || cart.getSnacks().isEmpty()) {
 <!DOCTYPE html>
 <html>
 <head>
-<title>View Cart</title>
-<style>
-table {
-	width: 80%;
-	margin: 8px; auto;
-	border-collapse: collapse;
-}
+ <title>View Cart</title>
+    <style>
+        body {
+            text-align: center;
+        }
 
-th, td {
-	border: 1px solid black;
-	background-color: #bc8f8f;
-	text-align: center;
-	padding: 8px;
-}
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
 
-th {
-background-color: #bc8f8f;
-}
-
- td {
-background-color: #bc8f8f;
- }
+        th, td {
+            border: 1px solid black;
+            text-align: center;
+            padding: 10px;
+        }
+        th {
+            background-color: #bc8f8f;
+        }
+        td {
+            background-color: #f4c2c2;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            text-align: center;
+            margin-top: 20px;
+        }
 </style>
 
 </head>
@@ -61,7 +69,6 @@ background-color: #bc8f8f;
 				<td><%=salad.getMenuName()%></td>
 				<td><%=salad.getSaladName()%></td>
 				<td><%=salad.getQuantity()%></td>
-				<td><%=salad.getPrice()%></td>
 				<td><%=salad.getTotalPrice()%></td>
 			</tr>
 			<%
