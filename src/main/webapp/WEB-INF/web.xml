@@ -8,26 +8,9 @@
 	</welcome-file-list>
 
 	<servlet>
-		<servlet-name>snacksorder</servlet-name>
-		<servlet-class>org.khadri.jakarta.jpa.SnacksOrderServlet</servlet-class>
+		<servlet-name>OrderServlet</servlet-name>
+		<servlet-class>org.khadri.jakarta.jpa.OrderServlet</servlet-class>
 	</servlet>
 
-	<servlet-mapping>
-		<servlet-name>snacksorder</servlet-name>
-		<url-pattern>/samosa</url-pattern>
-	</servlet-mapping>
-
-	<servlet-mapping>
-		<servlet-name>snacksorder</servlet-name>
-		<url-pattern>/biscuits</url-pattern>
-	</servlet-mapping>
-
-	<servlet-mapping>
-		<servlet-name>snacksorder</servlet-name>
-		<url-pattern>/tea</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>snacksorder</servlet-name>
-		<url-pattern>/coffee</url-pattern>
-	</servlet-mapping>
 </web-app>
+

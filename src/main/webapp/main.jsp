@@ -10,6 +10,7 @@ if (user == null) {
 }
 
 CheckoutCartForm cart = (CheckoutCartForm) session.getAttribute("checkout");
+int itemCount = (cart != null && cart.getSnacks() != null) ? cart.getSnacks().size() : 0;
 %>
 
 <!DOCTYPE html>
@@ -40,6 +41,27 @@ th, td {
 .user-info {
 	text-align: right;
 	margin-right: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.cart-container {
+	margin-top: 10px;
+	display: flex;
+	align-items: center;
+}
+
+.cart-icon {
+	font-size: 18px;
+	margin-right: 5px;
+	color: #000;
+}
+
+.cart-count {
+	font-size: 16px;
+	font-weight: bold;
+	color: #333;
 }
 
 .logout-form {
@@ -110,15 +132,20 @@ iframe {
 					<div class="user-info">
 						User:
 						<%=user%>
-					
+
 						<form action="logout.jsp" method="post">
 							<button type="submit">Logout</button>
 						</form>
+						<div class="cart-container">
+							<div class="cart-icon">🛒</div>
+							<div class="cart-count"><%=itemCount%>
+								items <a href="viewcart.jsp" target="content-frame">View
+									Cart</a>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div class="user-info">
-					 <%=cart.getSnacks() %>
-					</div>
+
 			</th>
 		</tr>
 	</table>
@@ -161,10 +188,15 @@ iframe {
 				<div class="dropdown">
 					<button class="dropbtn">Snacks</button>
 					<div class="dropdown-content">
-						<a href="snack.jsp?snackname=tea&snackprice=10" target="content-frame">Tea</a> <a
-							href="snack.jsp?snackname=coffee&snackprice=15" target="content-frame">Coffee</a> <a
-							href="snack.jsp?snackname=samosa&snackprice=20" target="content-frame">Samosa</a> <a
-							href="snack.jsp?snackname=biscuit&snackprice=30" target="content-frame">Biscuits</a>
+
+						<a href="snack.jsp?snackname=tea&snackprice=10"
+							target="content-frame">Tea</a> <a
+							href="snack.jsp?snackname=coffee&snackprice=15"
+							target="content-frame">Coffee</a> <a
+							href="snack.jsp?snackname=samosa&snackprice=20"
+							target="content-frame">Samosa</a> <a
+							href="snack.jsp?snackname=biscuit&snackprice="
+							target="content-frame">Biscuits</a>
 					</div>
 				</div>
 			</th>

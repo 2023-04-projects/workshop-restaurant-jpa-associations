@@ -2,30 +2,35 @@ package com.khadri.jakarta.jpa.form;
 
 public class SnackForm {
 
-	private String name;
-	private Integer qunatity;
+	private String snackName;
+
+	private Integer quantity;
 
 	private Double price;
 
 	private Double totalPrice;
 
-	private String type;
+	private String menuName;
 
-	public SnackForm(String name, Integer qunatity, Double price, Double totalPrice, String type) {
+	public SnackForm(String snackName, Integer quantity, Double price, Double totalPrice, String menuName) {
 		super();
-		this.name = name;
-		this.qunatity = qunatity;
+		this.snackName = snackName;
+		this.quantity = quantity;
 		this.price = price;
 		this.totalPrice = totalPrice;
-		this.type = type;
+		this.menuName = menuName;
 	}
 
-	public String getName() {
-		return name;
+	public String getSnackName() {
+		return snackName;
 	}
 
-	public Integer getQunatity() {
-		return qunatity;
+	public Integer getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
 	}
 
 	public Double getPrice() {
@@ -36,10 +41,18 @@ public class SnackForm {
 		return totalPrice;
 	}
 
+	public String getMenuName() {
+		return menuName;
+	}
+
+	public void setMenuName(String menuName) {
+		this.menuName = menuName;
+	}
+
 	@Override
 	public String toString() {
-		return "SnackForm [name=" + name + ", qunatity=" + qunatity + ", price=" + price + ", totalPrice=" + totalPrice
-				+ "]";
+		return "SnackForm [snackName=" + snackName + ", quantity=" + quantity + ", price=" + price + ", totalPrice="
+				+ totalPrice + ", menuName=" + menuName + " ]";
 	}
 
 }

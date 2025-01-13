@@ -5,14 +5,17 @@ import java.util.List;
 
 public class CheckoutCartForm {
 
-	private List<SnackForm> snacks = new ArrayList<>(); 
+    private List<SnackForm> snacks = new ArrayList<>();
 
-	public List<SnackForm> getSnacks() {
-		return snacks;
-	}
+    public List<SnackForm> getSnacks() {
+        return snacks;
+    }
 
-	public void setSnacks(List<SnackForm> snacks) {
-		this.snacks = snacks;
-	}
+    public void setSnacks(List<SnackForm> snacks) {
+        this.snacks = snacks;
+    }
 
+    public void clearCart() {
+        this.snacks.clear();
+    }
 }

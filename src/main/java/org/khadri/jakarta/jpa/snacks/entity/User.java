@@ -1,7 +1,16 @@
 package org.khadri.jakarta.jpa.snacks.entity;
 
-import jakarta.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "Users")
@@ -12,7 +21,7 @@ public class User {
 	private int userId;
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-	private List<Snack> orders;
+	private List<Snack> snacks = new ArrayList<>();
 
 	public int getUserId() {
 		return userId;
@@ -22,12 +31,12 @@ public class User {
 		this.userId = userId;
 	}
 
-	public List<Order> getOrders() {
-		return orders;
+	public List<Snack> getSnacks() {
+		return snacks;
 	}
 
-	public void setOrders(List<Order> orders) {
-		this.orders = orders;
+	public void setSnacks(List<Snack> snacks) {
+		this.snacks = snacks;
 	}
 
 }
