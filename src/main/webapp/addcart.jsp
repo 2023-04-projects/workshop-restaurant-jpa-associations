@@ -10,11 +10,11 @@ if (menuName != null) {
 	switch (menuName) {
 
 	case "Snacks":
-		String snackName = request.getParameter("snackName");
+		String itemName = request.getParameter("itemName");
 		Integer qty = Integer.parseInt(request.getParameter("quantity"));
 		Double price = Double.parseDouble(request.getParameter("price"));
 		Double totalPrice = Double.parseDouble(request.getParameter("totalPrice"));
-		SnackForm form = new SnackForm(snackName, qty, price, totalPrice, menuName);
+		SnackForm form = new SnackForm(itemName, qty, price, totalPrice, menuName);
 		cart.getSnacks().add(form);
 		break;
 

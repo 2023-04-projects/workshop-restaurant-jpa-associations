@@ -44,7 +44,7 @@ public class OrderServlet extends HttpServlet {
 
 		for (SnackForm snackForm : cart.getSnacks()) {
 			Snack snack = new Snack();
-			snack.setSnackName(snackForm.getSnackName());
+			snack.setSnackName(snackForm.getItemName());
 			snack.setPrice(snackForm.getPrice());
 			snack.setQuantity(snackForm.getQuantity());
 			snack.setMenuName(snackForm.getMenuName());

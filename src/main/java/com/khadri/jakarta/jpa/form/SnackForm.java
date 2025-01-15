@@ -2,7 +2,7 @@ package com.khadri.jakarta.jpa.form;
 
 public class SnackForm {
 
-	private String snackName;
+	private String itemName;
 
 	private Integer quantity;
 
@@ -12,17 +12,17 @@ public class SnackForm {
 
 	private String menuName;
 
-	public SnackForm(String snackName, Integer quantity, Double price, Double totalPrice, String menuName) {
+	public SnackForm(String itemName, Integer quantity, Double price, Double totalPrice, String menuName) {
 		super();
-		this.snackName = snackName;
+		this.itemName = itemName;
 		this.quantity = quantity;
 		this.price = price;
 		this.totalPrice = totalPrice;
 		this.menuName = menuName;
 	}
 
-	public String getSnackName() {
-		return snackName;
+	public String getItemName() {
+		return itemName;
 	}
 
 	public Integer getQuantity() {
@@ -51,7 +51,7 @@ public class SnackForm {
 
 	@Override
 	public String toString() {
-		return "SnackForm [snackName=" + snackName + ", quantity=" + quantity + ", price=" + price + ", totalPrice="
+		return "SnackForm [snackName=" + itemName + ", quantity=" + quantity + ", price=" + price + ", totalPrice="
 				+ totalPrice + ", menuName=" + menuName + " ]";
 	}
 

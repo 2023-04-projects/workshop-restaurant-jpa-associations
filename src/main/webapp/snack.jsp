@@ -61,9 +61,9 @@ button:hover {
 	<form action="addcart.jsp" method="post">
 		<table>
 			<tr>
-				<td>Snack Name:</td>
-				<td><input type="text" name="snackName"
-					value="<%=request.getParameter("snackname")%>" readonly></td>
+				<td>Item Name:</td>
+				<td><input type="text" name="itemName"
+					value="<%=request.getParameter("itemname")%>" readonly></td>
 			</tr>
 			<tr>
 				<td>Quantity:</td>

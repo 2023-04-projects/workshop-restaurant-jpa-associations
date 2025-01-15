@@ -4,7 +4,7 @@ CREATE TABLE Users (
 
 CREATE TABLE Snack (
   snack_id int auto_increment primary key,
-  snack_name VARCHAR(100),
+  item_name VARCHAR(100),
   price DOUBLE,
   quantity INT,
   menu_name varchar(200),

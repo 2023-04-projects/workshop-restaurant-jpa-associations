@@ -30,28 +30,29 @@ if (cart == null || cart.getSnacks().isEmpty()) {
             text-align: center;
             padding: 10px;
         }
+
         th {
             background-color: #bc8f8f;
         }
+
         td {
             background-color: #f4c2c2;
         }
+
         h1 {
             text-align: center;
-        }
-        form {
-            text-align: center;
-            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <h1>Your Cart</h1>
     <table>
         <thead>
             <tr>
+                <th colspan="5" style="font-size: 1.5em;">Your Cart</th>
+            </tr>
+            <tr>
                 <th>Menu Name</th>
-                <th>Snack Name</th>
+                <th>Item Name</th>
                 <th>Quantity</th>
                 <th>Price (₹)</th>
                 <th>Total Price</th>
@@ -65,23 +66,27 @@ if (cart == null || cart.getSnacks().isEmpty()) {
             %>
             <tr>
                 <td><%=snack.getMenuName()%></td>
-                <td><%=snack.getSnackName()%></td>
+                <td><%=snack.getItemName()%></td>
                 <td><%=snack.getQuantity()%></td>
                 <td><%=snack.getPrice()%></td>
                 <td><%=snack.getTotalPrice()%></td>
             </tr>
             <% } %>
-         </tbody>
+        </tbody>
         <tfoot>
             <tr>
                 <th colspan="4">Grand Total</th>
                 <th><%=grandTotal%></th>
             </tr>
+            <tr>
+                <td colspan="4"></td>
+                <td>
+                    <form action="placeOrder" method="post">
+                        <button type="submit">Order</button>
+                    </form>
+                </td>
+            </tr>
         </tfoot>
     </table>
-
-    <form action="placeOrder" method="post">
-        <button type="submit">Order</button>
-    </form>
 </body>
 </html>

@@ -17,8 +17,8 @@ public class Snack {
 	@Column(name = "snack_id")
 	private int snackId;
 
-	@Column(name = "snack_name")
-	private String snackName;
+	@Column(name = "item_name")
+	private String itemName;
 
 	private double price;
 
@@ -35,12 +35,12 @@ public class Snack {
 	@JoinColumn(name = "user_id")
 	private User user;
 
-	public String getSnackName() {
-		return snackName;
+	public String getItemName() {
+		return itemName;
 	}
 
-	public void setSnackName(String snackName) {
-		this.snackName = snackName;
+	public void setSnackName(String itemName) {
+		this.itemName = itemName;
 	}
 
 	public int getSnackId() {

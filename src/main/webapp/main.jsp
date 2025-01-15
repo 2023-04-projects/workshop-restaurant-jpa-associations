@@ -189,13 +189,13 @@ iframe {
 					<button class="dropbtn">Snacks</button>
 					<div class="dropdown-content">
 
-						<a href="snack.jsp?snackname=tea&snackprice=10"
+						<a href="snack.jsp?itemname=tea&snackprice=10"
 							target="content-frame">Tea</a> <a
-							href="snack.jsp?snackname=coffee&snackprice=15"
+							href="snack.jsp?itemname=coffee&snackprice=15"
 							target="content-frame">Coffee</a> <a
-							href="snack.jsp?snackname=samosa&snackprice=20"
+							href="snack.jsp?itemname=samosa&snackprice=20"
 							target="content-frame">Samosa</a> <a
-							href="snack.jsp?snackname=biscuit&snackprice="
+							href="snack.jsp?itemname=biscuit&snackprice="
 							target="content-frame">Biscuits</a>
 					</div>
 				</div>
