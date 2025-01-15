@@ -51,7 +51,7 @@ public class SnackForm {
 
 	@Override
 	public String toString() {
-		return "SnackForm [snackName=" + itemName + ", quantity=" + quantity + ", price=" + price + ", totalPrice="
+		return "SnackForm [itemName=" + itemName + ", quantity=" + quantity + ", price=" + price + ", totalPrice="
 				+ totalPrice + ", menuName=" + menuName + " ]";
 	}
 

@@ -44,20 +44,19 @@ public class OrderServlet extends HttpServlet {
 
 		for (SnackForm snackForm : cart.getSnacks()) {
 			Snack snack = new Snack();
-			snack.setSnackName(snackForm.getItemName());
+			snack.setItemName(snackForm.getItemName());
 			snack.setPrice(snackForm.getPrice());
 			snack.setQuantity(snackForm.getQuantity());
 			snack.setMenuName(snackForm.getMenuName());
 			snack.setTotalPrice(snackForm.getTotalPrice());
 			snack.setUser(user);
-
 			repository.insertSnack(snack);
 		}
-
 		cart.getSnacks().clear();
+		cart.getDinner().clear();
 		session.setAttribute("checkout", cart);
 
 		resp.getWriter().write("Order placed successfully");
 	}
+	}
 
-}
