@@ -1,4 +1,4 @@
-package org.khadri.jakarta.jpa.snacks.entity;
+package com.khadri.jakarta.jpa.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,8 +17,8 @@ public class Snack {
 	@Column(name = "snack_id")
 	private int snackId;
 
-	@Column(name = "item_name")
-	private String itemName;
+	@Column(name = "snack_name")
+	private String snackName;
 
 	private double price;
 
@@ -35,12 +35,12 @@ public class Snack {
 	@JoinColumn(name = "user_id")
 	private User user;
 
-	public String getItemName() {
-		return itemName;
+	public String getSnackName() {
+		return snackName;
 	}
 
-	public void setSnackName(String itemName) {
-		this.itemName = itemName;
+	public void setSnackName(String snackName) {
+		this.snackName = snackName;
 	}
 
 	public int getSnackId() {

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Order Snacks</title>
+<title>Order Tiffen</title>
 <style>
 body {
 	font-family: Arial, sans-serif;
@@ -57,13 +57,13 @@ button:hover {
 </script>
 </head>
 <body>
-	<h1>Order Snacks</h1>
+	<h1>Order Tiffen</h1>
 	<form action="addcart.jsp" method="post">
 		<table>
 			<tr>
-				<td>Snack Name:</td>
-				<td><input type="text" name="snackName"
-					value="<%=request.getParameter("snackname")%>" readonly></td>
+				<td>Tiffen Name:</td>
+				<td><input type="text" name="tiffenName"
+					value="<%=request.getParameter("tiffenname")%>" readonly></td>
 			</tr>
 			<tr>
 				<td>Quantity:</td>
@@ -72,7 +72,7 @@ button:hover {
 			</tr>
 			<tr>
 				<td>Price (per one):</td>
-				<td><input type="text" id="price" name="price" value="<%=request.getParameter("snackprice")%>"
+				<td><input type="text" id="price" name="price" value="<%=request.getParameter("tiffenprice")%>"
 					readonly></td>
 			</tr>
 			<tr>
@@ -86,7 +86,7 @@ button:hover {
 			
 		</table>
 		
-		<input type="hidden" name="menuname" value="Snacks">
+		<input type="hidden" name="menuname" value="Tiffen">
 	</form>
 </body>
 </html>

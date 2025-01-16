@@ -1,7 +1,9 @@
-package org.khadri.jakarta.jpa;
+package com.khadri.jakarta.jpa;
 
-import org.khadri.jakarta.jpa.snacks.entity.Snack;
-import org.khadri.jakarta.jpa.snacks.entity.User;
+import com.khadri.jakarta.jpa.entity.Dinner;
+import com.khadri.jakarta.jpa.entity.Snack;
+import com.khadri.jakarta.jpa.entity.Tiffen;
+import com.khadri.jakarta.jpa.entity.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 
@@ -25,5 +27,19 @@ public class EntityRepository {
 		entityManager.persist(snack);
 		entityManager.getTransaction().commit();
 	}
+
+	public void insertTiffen(Tiffen tiffen) {
+		entityManager.getTransaction().begin();
+		entityManager.persist(tiffen);
+		entityManager.getTransaction().commit();
+
+	}
+	public void insertDinner(Dinner dinner) {
+		entityManager.getTransaction().begin();
+		entityManager.persist(dinner);
+		entityManager.getTransaction().commit();
+
+	}
+
 
 }

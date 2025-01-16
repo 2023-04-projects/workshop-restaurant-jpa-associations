@@ -9,8 +9,8 @@
 
 	<servlet>
 		<servlet-name>OrderServlet</servlet-name>
-		<servlet-class>org.khadri.jakarta.jpa.OrderServlet</servlet-class>
+		<servlet-class>com.khadri.jakarta.jpa.OrderServlet</servlet-class>
 	</servlet>
-
 </web-app>
+
 
