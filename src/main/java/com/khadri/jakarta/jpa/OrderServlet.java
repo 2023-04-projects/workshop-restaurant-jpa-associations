@@ -77,6 +77,7 @@ public class OrderServlet extends HttpServlet {
 
 		cart.getSnacks().clear();
 		cart.getTiffen().clear();
+		cart.getSalads().clear();
 		session.setAttribute("checkout", cart);
 	}
 }
