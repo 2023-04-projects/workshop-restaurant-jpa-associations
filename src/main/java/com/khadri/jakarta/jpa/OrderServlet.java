@@ -1,12 +1,13 @@
-package org.khadri.jakarta.jpa;
+package com.khadri.jakarta.jpa;
 
 import java.io.IOException;
 
-import org.khadri.jakarta.jpa.snacks.entity.Snack;
-import org.khadri.jakarta.jpa.snacks.entity.User;
-
+import com.khadri.jakarta.jpa.entity.Snack;
+import com.khadri.jakarta.jpa.entity.Tiffen;
+import com.khadri.jakarta.jpa.entity.User;
 import com.khadri.jakarta.jpa.form.CheckoutCartForm;
 import com.khadri.jakarta.jpa.form.SnackForm;
+import com.khadri.jakarta.jpa.form.TiffenForm;
 
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -22,7 +23,7 @@ public class OrderServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	private EntityRepository repository;
-	EntityManagerFactory factory = Persistence.createEntityManagerFactory("PERSISTENCE_UNIT");
+	private EntityManagerFactory factory = Persistence.createEntityManagerFactory("PERSISTENCE_UNIT");
 
 	@Override
 	public void init() throws ServletException {
@@ -34,15 +35,14 @@ public class OrderServlet extends HttpServlet {
 		HttpSession session = req.getSession();
 		CheckoutCartForm cart = (CheckoutCartForm) session.getAttribute("checkout");
 
-		if (cart == null || cart.getSnacks().isEmpty()) {
+		if (cart == null || (cart.getSnacks().isEmpty() && cart.getTiffen().isEmpty())) {
 			resp.getWriter().write("Your cart is empty!");
 			return;
 		}
-
 		User user = new User();
+		user.setPhoneNumber((Long.parseLong(cart.getUserNumber())));
 		repository.insertUser(user);
-
-		for (SnackForm snackForm : cart.getSnacks()) {
+		cart.getSnacks().stream().forEach(snackForm -> {
 			Snack snack = new Snack();
 			snack.setSnackName(snackForm.getSnackName());
 			snack.setPrice(snackForm.getPrice());
@@ -50,14 +50,23 @@ public class OrderServlet extends HttpServlet {
 			snack.setMenuName(snackForm.getMenuName());
 			snack.setTotalPrice(snackForm.getTotalPrice());
 			snack.setUser(user);
-
+			user.getSnacks().add(snack);
 			repository.insertSnack(snack);
-		}
+		});
+		cart.getTiffen().stream().forEach(tiffenForm -> {
+			Tiffen tiffen = new Tiffen();
+			tiffen.setTiffenName(tiffenForm.getTiffenName());
+			tiffen.setPrice(tiffenForm.getPrice());
+			tiffen.setQuantity(tiffenForm.getQuantity());
+			tiffen.setMenuName(tiffenForm.getMenuName());
+			tiffen.setTotalPrice(tiffenForm.getTotalPrice());
+			tiffen.setUser(user);
+			user.getTiffen().add(tiffen);
+			repository.insertTiffen(tiffen);
+		});
 
 		cart.getSnacks().clear();
+		cart.getTiffen().clear();
 		session.setAttribute("checkout", cart);
-
-		resp.getWriter().write("Order placed successfully");
 	}
-
 }

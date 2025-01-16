@@ -1,4 +1,4 @@
-package org.khadri.jakarta.jpa.snacks.entity;
+package com.khadri.jakarta.jpa.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
