@@ -7,8 +7,6 @@ import com.khadri.jakarta.jpa.entity.Snack;
 import com.khadri.jakarta.jpa.entity.Tiffen;
 import com.khadri.jakarta.jpa.entity.User;
 import com.khadri.jakarta.jpa.form.CheckoutCartForm;
-import com.khadri.jakarta.jpa.form.SnackForm;
-import com.khadri.jakarta.jpa.form.TiffenForm;
 
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -24,8 +22,9 @@ public class OrderServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	private EntityRepository repository;
-	 EntityManagerFactory factory = Persistence.createEntityManagerFactory("PERSISTENCE_UNIT");
 
+	 EntityManagerFactory factory = Persistence.createEntityManagerFactory("PERSISTENCE_UNIT");
+	
 	@Override
 	public void init() throws ServletException {
 		repository = new EntityRepository(factory);

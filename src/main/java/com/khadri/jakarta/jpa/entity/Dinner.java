@@ -88,5 +88,4 @@ public class Dinner {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
 }

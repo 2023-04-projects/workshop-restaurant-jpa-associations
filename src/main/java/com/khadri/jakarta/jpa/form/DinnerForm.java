@@ -47,7 +47,6 @@ public class DinnerForm {
 	public void setMenuName(String menuName) {
 		this.menuName = menuName;
 	}
-
 	@Override
 	public String toString() {
 		return "DinnerForm [dinnerName=" + dinnerName + ", quantity=" + quantity + ", price=" + price + ", totalPrice="

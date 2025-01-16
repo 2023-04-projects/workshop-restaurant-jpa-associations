@@ -4,8 +4,6 @@ import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.khadri.jakarta.jpa.form.SnackForm;
-
 @Entity
 @Table(name = "Users")
 public class User {
@@ -22,10 +20,9 @@ public class User {
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Tiffen> tiffen = new ArrayList<>();
-	
+
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Dinner> dinner = new ArrayList<>();
-
 
 	public int getUserId() {
 		return userId;
@@ -66,6 +63,5 @@ public class User {
 	public void setDinner(List<Dinner> dinner) {
 		this.dinner = dinner;
 	}
-	
 
 }

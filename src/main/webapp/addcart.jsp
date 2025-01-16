@@ -11,10 +11,8 @@ CheckoutCartForm cart = (CheckoutCartForm) session.getAttribute("checkout");
 if (cart == null) {
 	cart = new CheckoutCartForm();
 	System.out.println("Addcartpage " + (String) session.getAttribute("user"));
-	cart.setUserNumber((String) session.getAttribute("user"));
 	session.setAttribute("checkout", cart);
 }
-
 
 String menuName = request.getParameter("menuname");
 
@@ -35,7 +33,8 @@ if (menuName != null) {
 
 		TiffenForm tiffenForm = new TiffenForm(tiffenName, qty, price, totalPrice, menuName);
 		cart.getTiffen().add(tiffenForm);
-	}else if ("Dinner".equalsIgnoreCase(menuName)) {
+
+	} else if ("Dinner".equalsIgnoreCase(menuName)) {
 		String dinnerName = request.getParameter("dinnerName");
 		Integer qty = Integer.parseInt(request.getParameter("quantity"));
 		Double price = Double.parseDouble(request.getParameter("price"));
@@ -43,6 +42,7 @@ if (menuName != null) {
 
 		DinnerForm dinnerForm = new DinnerForm(dinnerName, qty, price, totalPrice, menuName);
 		cart.getDinner().add(dinnerForm);
+
 	}
 }
 %>

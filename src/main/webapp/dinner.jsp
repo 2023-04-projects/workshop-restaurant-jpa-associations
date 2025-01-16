@@ -10,7 +10,6 @@ body {
 	text-align: center;
 	margin-top: 50px;
 }
-
 table {
 	margin: 0 auto;
 	border: 1px solid black;

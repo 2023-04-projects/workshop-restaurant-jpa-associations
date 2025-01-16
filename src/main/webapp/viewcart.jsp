@@ -1,4 +1,3 @@
-
 <%@page import="com.khadri.jakarta.jpa.form.TiffenForm"%>
 <%@page import="com.khadri.jakarta.jpa.form.SnackForm"%>
 <%@page import="com.khadri.jakarta.jpa.form.DinnerForm"%>
@@ -7,8 +6,8 @@
 	pageEncoding="UTF-8"%>
 <%
 CheckoutCartForm cart = (CheckoutCartForm) session.getAttribute("checkout");
-System.out.println("viewcartpage "+(String)session.getAttribute("user"));
-cart.setUserNumber((String)session.getAttribute("user"));
+System.out.println("viewcartpage " + (String) session.getAttribute("user"));
+cart.setUserNumber((String) session.getAttribute("user"));
 %>
 
 <!DOCTYPE html>
@@ -103,9 +102,9 @@ form {
 			<%
 			}
 			for (DinnerForm dinner : cart.getDinner()) {
-				grandTotal += dinner.getTotalPrice();
-				%>
-				<tr>
+			grandTotal += dinner.getTotalPrice();
+			%>
+			<tr>
 				<td>Dinner</td>
 				<td><%=dinner.getDinnerName()%></td>
 				<td><%=dinner.getQuantity()%></td>
@@ -115,7 +114,6 @@ form {
 			<%
 			}
 			%>
-	
 		</tbody>
 		<tfoot>
 			<tr>

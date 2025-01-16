@@ -1,6 +1,7 @@
 package com.khadri.jakarta.jpa;
 
 import com.khadri.jakarta.jpa.entity.Dinner;
+
 import com.khadri.jakarta.jpa.entity.Snack;
 import com.khadri.jakarta.jpa.entity.Tiffen;
 import com.khadri.jakarta.jpa.entity.User;
@@ -9,7 +10,6 @@ import jakarta.persistence.EntityManagerFactory;
 
 public class EntityRepository {
 
-	private EntityManagerFactory factory;
 	private EntityManager entityManager;
 
 	public EntityRepository(EntityManagerFactory factory) {
@@ -40,6 +40,7 @@ public class EntityRepository {
 		entityManager.getTransaction().commit();
 
 	}
+
 
 
 }
