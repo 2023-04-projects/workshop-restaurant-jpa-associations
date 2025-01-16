@@ -14,7 +14,7 @@
 				value="com.mysql.cj.jdbc.Driver" />
 			<property name="jakarta.persistence.jdbc.user" value="root" />
 			<property name="jakarta.persistence.jdbc.password"
-				value="root" />
+				value="Wellcome@123" />
 			<property name="hibernate.show_sql" value="true" />
 		</properties>
 	</persistence-unit>

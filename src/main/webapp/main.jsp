@@ -10,7 +10,9 @@ if (user == null) {
 }
 
 CheckoutCartForm cart = (CheckoutCartForm) session.getAttribute("checkout");
-int itemCount = (cart != null && cart.getSnacks() != null) ? cart.getSnacks().size() : 0;
+int itemCountSnacks = (cart != null && cart.getSnacks() != null) ? cart.getSnacks().size() : 0;
+int itemCountTiffens = (cart != null && cart.getTiffen() != null) ? cart.getTiffen().size() : 0;
+int itemCount = itemCountSnacks + itemCountTiffens;
 %>
 
 <!DOCTYPE html>
@@ -55,13 +57,25 @@ th, td {
 .cart-icon {
 	font-size: 18px;
 	margin-right: 5px;
-	color: #000;
+	color: #e3ac14;
 }
 
 .cart-count {
 	font-size: 16px;
 	font-weight: bold;
 	color: #333;
+}
+
+.logout-button {
+	background-color: #4CAF50; /* Green */
+	border: none;
+	color: white;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	cursor: pointer;
 }
 
 .logout-form {
@@ -128,13 +142,15 @@ iframe {
 			<th>
 				<div class="header">
 
-					<h2>KHADRI RESTAURANT</h2>
+					<h1>KHADRI RESTAURANT</h1>
 					<div class="user-info">
 						User:
 						<%=user%>
 
 						<form action="logout.jsp" method="post">
-							<button type="submit">Logout</button>
+							<button class="logout-button"
+								onclick="window.location.href='logout.jsp'">Logout</button>
+
 						</form>
 						<div class="cart-container">
 							<div class="cart-icon">🛒</div>
@@ -164,11 +180,16 @@ iframe {
 			</th>
 			<th>
 				<div class="dropdown">
-					<button class="dropbtn">Tiffens</button>
+					<button class="dropbtn">Tiffen</button>
 					<div class="dropdown-content">
-						<a href="idly.jsp" target="content-frame">Idly</a> <a href="vada"
-							target="content-frame">Vada</a> <a href="Dosa"
-							target="content-frame">Dosa</a> <a href="pongal"
+
+						<a href="tiffen.jsp?tiffenname=idly&tiffenprice=10"
+							target="content-frame">Idly</a> <a
+							href="tiffen.jsp?tiffenname=voda&tiffenprice=15"
+							target="content-frame">Voda</a> <a
+							href="tiffen.jsp?tiffenname=puri&tiffenprice=20"
+							target="content-frame">Puri</a> <a
+							href="tiffen.jsp?tiffenname=pongal&tiffenprice=45"
 							target="content-frame">Pongal</a>
 					</div>
 				</div>
@@ -195,7 +216,7 @@ iframe {
 							target="content-frame">Coffee</a> <a
 							href="snack.jsp?snackname=samosa&snackprice=20"
 							target="content-frame">Samosa</a> <a
-							href="snack.jsp?snackname=biscuit&snackprice="
+							href="snack.jsp?snackname=biscuit&snackprice=100"
 							target="content-frame">Biscuits</a>
 					</div>
 				</div>
@@ -212,8 +233,6 @@ iframe {
 			</th>
 		</tr>
 	</table>
-
-
 	<iframe name="content-frame" src="" id="content-frame"></iframe>
 
 </body>
