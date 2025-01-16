@@ -1,8 +1,10 @@
 package com.khadri.jakarta.jpa;
 
+import com.khadri.jakarta.jpa.entity.Salad;
 import com.khadri.jakarta.jpa.entity.Snack;
 import com.khadri.jakarta.jpa.entity.Tiffen;
 import com.khadri.jakarta.jpa.entity.User;
+
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 
@@ -30,6 +32,13 @@ public class EntityRepository {
 	public void insertTiffen(Tiffen tiffen) {
 		entityManager.getTransaction().begin();
 		entityManager.persist(tiffen);
+		entityManager.getTransaction().commit();
+
+	}
+
+	public void insertSalad(Salad salad) {
+		entityManager.getTransaction().begin();
+		entityManager.persist(salad);
 		entityManager.getTransaction().commit();
 
 	}

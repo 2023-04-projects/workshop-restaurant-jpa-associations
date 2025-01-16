@@ -1,5 +1,6 @@
 <%@page import="com.khadri.jakarta.jpa.form.SnackForm"%>
 <%@page import="com.khadri.jakarta.jpa.form.TiffenForm"%>
+<%@page import="com.khadri.jakarta.jpa.form.SaladForm"%>
 <%@page import="com.khadri.jakarta.jpa.form.CheckoutCartForm"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -58,7 +59,7 @@ tfoot td {
 }
 
 form {
-	text-align: center;
+	text-align: right;
 	margin-top: 20px;
 }
 </style>
@@ -106,7 +107,19 @@ form {
 			</tr>
 			<%
 			}
+			for (SaladForm salad : cart.getSalads()) {
+				grandTotal += salad.getTotalPrice();
 			%>
+			<tr>
+			<td>Salad</td>
+				<td><%=salad.getSaladName()%></td>
+				<td><%=salad.getQuantity()%></td>
+				<td><%=salad.getPrice()%></td>
+				<td><%=salad.getTotalPrice()%></td>
+			</tr>
+			<%
+			}
+			%>	
 		</tbody>
 		<tfoot>
 			<tr>

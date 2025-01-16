@@ -2,12 +2,11 @@ package com.khadri.jakarta.jpa;
 
 import java.io.IOException;
 
+import com.khadri.jakarta.jpa.entity.Salad;
 import com.khadri.jakarta.jpa.entity.Snack;
 import com.khadri.jakarta.jpa.entity.Tiffen;
 import com.khadri.jakarta.jpa.entity.User;
 import com.khadri.jakarta.jpa.form.CheckoutCartForm;
-import com.khadri.jakarta.jpa.form.SnackForm;
-import com.khadri.jakarta.jpa.form.TiffenForm;
 
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -63,6 +62,17 @@ public class OrderServlet extends HttpServlet {
 			tiffen.setUser(user);
 			user.getTiffen().add(tiffen);
 			repository.insertTiffen(tiffen);
+		});
+		cart.getSalads().stream().forEach(saladForm -> {
+			Salad salad = new Salad();
+			salad.setSaladName(saladForm.getSaladName());
+			salad.setPrice(saladForm.getPrice());
+			salad.setQuantity(saladForm.getQuantity());
+			salad.setMenuName(saladForm.getMenuName());
+			salad.setTotalPrice(saladForm.getTotalPrice());
+			salad.setUser(user);
+			user.getSalad().add(salad);
+			repository.insertSalad(salad);
 		});
 
 		cart.getSnacks().clear();
