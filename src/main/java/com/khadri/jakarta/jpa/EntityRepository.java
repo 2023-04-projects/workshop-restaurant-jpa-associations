@@ -15,7 +15,6 @@ public class EntityRepository {
 	public EntityRepository(EntityManagerFactory factory) {
 		this.entityManager = factory.createEntityManager();
 	}
-
 	public void insertUser(User user) {
 		entityManager.getTransaction().begin();
 		entityManager.persist(user);

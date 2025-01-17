@@ -2,7 +2,6 @@ CREATE TABLE Users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     phone_number BIGINT
 );
-
 CREATE TABLE Snack (
     snack_id INT AUTO_INCREMENT PRIMARY KEY,
     snack_name VARCHAR(255) ,

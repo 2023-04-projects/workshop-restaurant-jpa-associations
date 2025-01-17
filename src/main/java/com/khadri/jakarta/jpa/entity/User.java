@@ -61,8 +61,6 @@ public class User {
 		this.snacks = snacks;
 	}
 
-	
-
 	public List<Dinner> getDinner() {
 		return dinner;
 	}

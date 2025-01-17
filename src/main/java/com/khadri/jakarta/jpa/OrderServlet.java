@@ -88,7 +88,7 @@ public class OrderServlet extends HttpServlet {
 			user.getSalad().add(salad);
 			repository.insertSalad(salad);
 		});
-
+		
 		cart.getDinner().clear();
 		cart.getSnacks().clear();
 		cart.getTiffen().clear();

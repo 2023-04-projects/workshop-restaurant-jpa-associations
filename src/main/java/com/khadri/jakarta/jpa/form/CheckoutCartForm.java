@@ -11,7 +11,6 @@ public class CheckoutCartForm {
 	private List<SaladForm> salads = new ArrayList<>();
 	private  String  userNumber;
 	
-
 	public List<SnackForm> getSnacks() {
 		return snacks;
 	}

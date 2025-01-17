@@ -1,6 +1,7 @@
 package com.khadri.jakarta.jpa.form;
 
 public class DinnerForm {
+	
 	private String dinnerName;
 
 	private Integer quantity;

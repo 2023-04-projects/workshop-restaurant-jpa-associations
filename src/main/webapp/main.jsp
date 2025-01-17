@@ -16,7 +16,6 @@ int itemCountDinner = (cart != null && cart.getDinner() != null) ? cart.getDinne
 int itemCountSalads = (cart != null && cart.getSalads() != null) ? cart.getSalads().size() : 0;
 int itemCount = itemCountSnacks + itemCountTiffens + itemCountSalads+itemCountDinner;
 %>
-
 <!DOCTYPE html>
 <html>
 <head>

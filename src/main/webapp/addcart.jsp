@@ -45,6 +45,7 @@ if (menuName != null) {
 		cart.getDinner().add(dinnerForm);
 
 	}
+
 } else if ("Salads".equalsIgnoreCase(menuName)) {
 	String saladName = request.getParameter("saladName");
 	Integer qty = Integer.parseInt(request.getParameter("quantity"));

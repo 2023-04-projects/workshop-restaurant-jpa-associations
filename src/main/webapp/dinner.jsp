@@ -84,7 +84,6 @@ button:hover {
 			</tr>
 			
 		</table>
-		
 		<input type="hidden" name="menuname" value="Dinner">
 	</form>
 </body>
