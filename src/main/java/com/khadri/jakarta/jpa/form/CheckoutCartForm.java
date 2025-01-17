@@ -7,10 +7,10 @@ public class CheckoutCartForm {
 
 	private List<SnackForm> snacks = new ArrayList<>();
 	private List<TiffenForm> tiffen = new ArrayList<>();
+	private List<DinnerForm> dinner = new ArrayList<>();
 	private List<SaladForm> salads = new ArrayList<>();
 	private  String  userNumber;
 	
-
 	public List<SnackForm> getSnacks() {
 		return snacks;
 	}
@@ -45,6 +45,14 @@ public class CheckoutCartForm {
 
 	public void clearCart() {
 		this.snacks.clear();
+	}
+
+	public List<DinnerForm> getDinner() {
+		return dinner;
+	}
+
+	public void setDinner(List<DinnerForm> dinner) {
+		this.dinner = dinner;
 	}
 
 }

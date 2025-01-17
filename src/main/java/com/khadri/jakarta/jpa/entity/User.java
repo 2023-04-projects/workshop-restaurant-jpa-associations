@@ -32,6 +32,9 @@ public class User {
 	private List<Tiffen> tiffen = new ArrayList<>();
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	private List<Dinner> dinner = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Salad> salad = new ArrayList<>();
 
 	public int getUserId() {
@@ -57,6 +60,15 @@ public class User {
 	public void setSnacks(List<Snack> snacks) {
 		this.snacks = snacks;
 	}
+
+	public List<Dinner> getDinner() {
+		return dinner;
+	}
+
+	public void setDinner(List<Dinner> dinner) {
+		this.dinner = dinner;
+	}
+
 
 	public List<Tiffen> getTiffen() {
 		return tiffen;

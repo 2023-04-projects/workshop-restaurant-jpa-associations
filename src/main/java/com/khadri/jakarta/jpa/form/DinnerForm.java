@@ -1,8 +1,8 @@
 package com.khadri.jakarta.jpa.form;
 
-public class SnackForm {
-
-	private String snackName;
+public class DinnerForm {
+	
+	private String dinnerName;
 
 	private Integer quantity;
 
@@ -12,19 +12,17 @@ public class SnackForm {
 
 	private String menuName;
 
-
-	public SnackForm(String snackName, Integer quantity, Double price, Double totalPrice, String menuName) {
+	public DinnerForm(String dinnerName, Integer quantity, Double price, Double totalPrice, String menuName) {
 		super();
-		this.snackName = snackName;
+		this.dinnerName = dinnerName;
 		this.quantity = quantity;
 		this.price = price;
 		this.totalPrice = totalPrice;
 		this.menuName = menuName;
 	}
 
-
-	public String getSnackName() {
-		return snackName;
+	public String getDinnerName() {
+		return dinnerName;
 	}
 
 	public Integer getQuantity() {
@@ -50,11 +48,12 @@ public class SnackForm {
 	public void setMenuName(String menuName) {
 		this.menuName = menuName;
 	}
-
 	@Override
 	public String toString() {
-		return "SnackForm [snackName=" + snackName + ", quantity=" + quantity + ", price=" + price + ", totalPrice="
+		return "DinnerForm [dinnerName=" + dinnerName + ", quantity=" + quantity + ", price=" + price + ", totalPrice="
 				+ totalPrice + ", menuName=" + menuName + " ]";
 	}
 
 }
+
+

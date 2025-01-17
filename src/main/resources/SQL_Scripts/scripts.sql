@@ -22,6 +22,17 @@ CREATE TABLE Tiffen (
     user_id INT,
     FOREIGN KEY (user_id) REFERENCES Users(user_id) 
 );
+CREATE TABLE Dinner (
+   dinner_id int auto_increment primary key,
+    dinner_name VARCHAR(100),
+    price DOUBLE,
+     quantity INT,
+     menu_name varchar(200),
+     total_price DOUBLE,
+       user_id int,
+	FOREIGN KEY (user_id) REFERENCES Users(user_id)
+);
+
 CREATE TABLE Salad (
     salad_id INT AUTO_INCREMENT PRIMARY KEY,
     salad_name VARCHAR(255) ,
@@ -32,6 +43,7 @@ CREATE TABLE Salad (
     user_id INT,
     FOREIGN KEY (user_id) REFERENCES Users(user_id) 
 );
+ 
   
 
 

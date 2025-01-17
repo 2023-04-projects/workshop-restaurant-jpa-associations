@@ -12,10 +12,10 @@ if (user == null) {
 CheckoutCartForm cart = (CheckoutCartForm) session.getAttribute("checkout");
 int itemCountSnacks = (cart != null && cart.getSnacks() != null) ? cart.getSnacks().size() : 0;
 int itemCountTiffens = (cart != null && cart.getTiffen() != null) ? cart.getTiffen().size() : 0;
+int itemCountDinner = (cart != null && cart.getDinner() != null) ? cart.getDinner().size() : 0;
 int itemCountSalads = (cart != null && cart.getSalads() != null) ? cart.getSalads().size() : 0;
-int itemCount = itemCountSnacks + itemCountTiffens + itemCountSalads;
+int itemCount = itemCountSnacks + itemCountTiffens + itemCountSalads+itemCountDinner;
 %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,6 +58,7 @@ th, td {
 .cart-icon {
 	font-size: 18px;
 	margin-right: 5px;
+
 	color: #e3ac14;
 }
 
@@ -212,14 +213,13 @@ iframe {
 				<div class="dropdown">
 					<button class="dropbtn">Snacks</button>
 					<div class="dropdown-content">
-
 						<a href="snack.jsp?snackname=tea&snackprice=10"
 							target="content-frame">Tea</a> <a
 							href="snack.jsp?snackname=coffee&snackprice=15"
 							target="content-frame">Coffee</a> <a
 							href="snack.jsp?snackname=samosa&snackprice=20"
 							target="content-frame">Samosa</a> <a
-							href="snack.jsp?snackname=biscuit&snackprice=100"
+							href="snack.jsp?snackname=biscuit&snackprice=5"
 							target="content-frame">Biscuits</a>
 					</div>
 				</div>
@@ -228,9 +228,11 @@ iframe {
 				<div class="dropdown">
 					<button class="dropbtn">Dinner</button>
 					<div class="dropdown-content">
-						<a href="Chapati" target="content-frame">Chapati</a> <a
-							href="Butternaan" target="content-frame">Butternaan</a> <a
-							href="Rice" target="content-frame">Rice</a>
+						<a href="dinner.jsp?dinnerName=Chapati&price=30"
+						 target="content-frame">Chapati</a> <a
+							href="dinner.jsp?dinnerName=Butternaan&price=20"
+							 target="content-frame">Butternaan</a> <a
+							href="dinner.jsp?dinnerName=Rice&price=40" target="content-frame">Rice</a>
 					</div>
 				</div>
 			</th>
