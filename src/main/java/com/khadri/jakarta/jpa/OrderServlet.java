@@ -3,6 +3,7 @@ package com.khadri.jakarta.jpa;
 import java.io.IOException;
 
 import com.khadri.jakarta.jpa.entity.Dinner;
+import com.khadri.jakarta.jpa.entity.Salad;
 import com.khadri.jakarta.jpa.entity.Snack;
 import com.khadri.jakarta.jpa.entity.Tiffen;
 import com.khadri.jakarta.jpa.entity.User;
@@ -23,8 +24,8 @@ public class OrderServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private EntityRepository repository;
 
-	 EntityManagerFactory factory = Persistence.createEntityManagerFactory("PERSISTENCE_UNIT");
-	
+	EntityManagerFactory factory = Persistence.createEntityManagerFactory("PERSISTENCE_UNIT");
+
 	@Override
 	public void init() throws ServletException {
 		repository = new EntityRepository(factory);
@@ -35,7 +36,7 @@ public class OrderServlet extends HttpServlet {
 		HttpSession session = req.getSession();
 		CheckoutCartForm cart = (CheckoutCartForm) session.getAttribute("checkout");
 
-		if (cart == null || (cart.getSnacks().isEmpty() && cart.getTiffen().isEmpty() && cart.getDinner().isEmpty())) {
+		if (cart == null || (cart.getSnacks().isEmpty() && cart.getTiffen().isEmpty() && cart.getDinner().isEmpty())&&cart.getSalads().isEmpty()) {
 			resp.getWriter().write("Your cart is empty!");
 			return;
 		}
@@ -75,11 +76,23 @@ public class OrderServlet extends HttpServlet {
 			user.getDinner().add(dinner);
 			repository.insertDinner(dinner);
 		});
-		
 
+		cart.getSalads().stream().forEach(saladForm -> {
+			Salad salad = new Salad();
+			salad.setSaladName(saladForm.getSaladName());
+			salad.setPrice(saladForm.getPrice());
+			salad.setQuantity(saladForm.getQuantity());
+			salad.setMenuName(saladForm.getMenuName());
+			salad.setTotalPrice(saladForm.getTotalPrice());
+			salad.setUser(user);
+			user.getSalad().add(salad);
+			repository.insertSalad(salad);
+		});
+
+		cart.getDinner().clear();
 		cart.getSnacks().clear();
 		cart.getTiffen().clear();
-		cart.getDinner().clear();
+		cart.getSalads().clear();
 		session.setAttribute("checkout", cart);
 	}
 }
