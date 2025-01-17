@@ -1,7 +1,7 @@
 package com.khadri.jakarta.jpa;
 
 import com.khadri.jakarta.jpa.entity.Dinner;
-
+import com.khadri.jakarta.jpa.entity.Salad;
 import com.khadri.jakarta.jpa.entity.Snack;
 import com.khadri.jakarta.jpa.entity.Tiffen;
 import com.khadri.jakarta.jpa.entity.User;
@@ -34,6 +34,7 @@ public class EntityRepository {
 		entityManager.getTransaction().commit();
 
 	}
+
 	public void insertDinner(Dinner dinner) {
 		entityManager.getTransaction().begin();
 		entityManager.persist(dinner);
@@ -41,6 +42,11 @@ public class EntityRepository {
 
 	}
 
+	public void insertSalad(Salad salad) {
+		entityManager.getTransaction().begin();
+		entityManager.persist(salad);
+		entityManager.getTransaction().commit();
 
+	}
 
 }
