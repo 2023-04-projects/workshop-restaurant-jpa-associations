@@ -22,4 +22,16 @@ CREATE TABLE Tiffen (
     user_id INT,
     FOREIGN KEY (user_id) REFERENCES Users(user_id) 
 );
- 
+CREATE TABLE Salad (
+    salad_id INT AUTO_INCREMENT PRIMARY KEY,
+    salad_name VARCHAR(255) ,
+    price DOUBLE ,
+    quantity INT ,
+    menu_name VARCHAR(255) ,
+    total_price DOUBLE ,
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES Users(user_id) 
+);
+  
+
+

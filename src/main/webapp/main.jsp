@@ -12,7 +12,8 @@ if (user == null) {
 CheckoutCartForm cart = (CheckoutCartForm) session.getAttribute("checkout");
 int itemCountSnacks = (cart != null && cart.getSnacks() != null) ? cart.getSnacks().size() : 0;
 int itemCountTiffens = (cart != null && cart.getTiffen() != null) ? cart.getTiffen().size() : 0;
-int itemCount = itemCountSnacks + itemCountTiffens;
+int itemCountSalads = (cart != null && cart.getSalads() != null) ? cart.getSalads().size() : 0;
+int itemCount = itemCountSnacks + itemCountTiffens + itemCountSalads;
 %>
 
 <!DOCTYPE html>
@@ -22,7 +23,7 @@ int itemCount = itemCountSnacks + itemCountTiffens;
 
 <style>
 table {
-	width: 100%;
+	width: 150%;
 	height: 100%;
 	border-collapse: collapse;
 }
@@ -140,8 +141,7 @@ iframe {
 	<table>
 		<tr>
 			<th>
-				<div class="header">
-
+				<div>
 					<h1>KHADRI RESTAURANT</h1>
 					<div class="user-info">
 						User:
@@ -153,10 +153,8 @@ iframe {
 
 						</form>
 						<div class="cart-container">
-							<div class="cart-icon">🛒</div>
 							<div class="cart-count"><%=itemCount%>
-								items <a href="viewcart.jsp" target="content-frame">View
-									Cart</a>
+								items <a href="viewcart.jsp" target="content-frame">🛒</a>
 							</div>
 						</div>
 					</div>
@@ -172,9 +170,14 @@ iframe {
 				<div class="dropdown">
 					<button class="dropbtn">Salads</button>
 					<div class="dropdown-content">
-						<a href="Veg_salad" target="content-frame">Veg_salad</a> <a
-							href="Fruits_salad" target="content-frame">Fruits_salad</a> <a
-							href="Non_veg_salad" target="content-frame">non_veg_salad</a>
+						<a href="salad.jsp?saladname=fruitsalad&saladprice=120"
+							target="content-frame">Fruit Salad</a> <a
+							href="salad.jsp?saladname=vegsalad&saladprice=100"
+							target="content-frame">Veg Salad</a> <a
+							href="salad.jsp?saladname=greeksalad&saladprice=150"
+							target="content-frame">Greek Salad</a> <a
+							href="salad.jsp?saladname=nonvegsalad&saladprice=190"
+							target="content-frame">NonVeg Salad</a>
 					</div>
 				</div>
 			</th>
@@ -233,7 +236,8 @@ iframe {
 			</th>
 		</tr>
 	</table>
-	<iframe name="content-frame" src="" id="content-frame"></iframe>
+	<iframe name="content-frame" src="images/Restaurant.jpg"
+		id="content-frame" width="100" height="5"></iframe>
 
 </body>
 </html>

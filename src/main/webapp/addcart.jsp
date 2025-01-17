@@ -1,6 +1,7 @@
 <%@page import="org.hibernate.internal.build.AllowSysOut"%>
 <%@page import="com.khadri.jakarta.jpa.form.SnackForm"%>
 <%@page import="com.khadri.jakarta.jpa.form.TiffenForm"%>
+<%@page import="com.khadri.jakarta.jpa.form.SaladForm"%>
 <%@page import="com.khadri.jakarta.jpa.form.CheckoutCartForm"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -33,6 +34,14 @@ if (menuName != null) {
 
 		TiffenForm tiffenForm = new TiffenForm(tiffenName, qty, price, totalPrice, menuName);
 		cart.getTiffen().add(tiffenForm);
-	}
+   } else if ("Salads".equalsIgnoreCase(menuName)) {
+	String saladName = request.getParameter("saladName");
+	Integer qty = Integer.parseInt(request.getParameter("quantity"));
+	Double price = Double.parseDouble(request.getParameter("price"));
+	Double totalPrice = Double.parseDouble(request.getParameter("totalPrice"));
+
+	SaladForm saladForm = new SaladForm(saladName, qty, price, totalPrice, menuName);
+	cart.getSalads().add(saladForm);
+	} 
 }
 %>
