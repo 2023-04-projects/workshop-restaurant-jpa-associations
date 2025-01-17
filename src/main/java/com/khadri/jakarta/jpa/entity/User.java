@@ -7,49 +7,61 @@ import java.util.List;
 @Entity
 @Table(name = "Users")
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
-    private int userId;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "user_id")
+	private int userId;
 
-    @Column(name ="phone_number")
-    private Long phoneNumber;
+	@Column(name = "phone_number")
+	private Long phoneNumber;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Snack> snacks = new ArrayList<>();
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	private List<Snack> snacks = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Tiffen> tiffen = new ArrayList<>();
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	private List<Tiffen> tiffen = new ArrayList<>();
 
-    public int getUserId() {
-        return userId;
-    }
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	private List<Lunch> lunch = new ArrayList<Lunch>();
 
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
+	public int getUserId() {
+		return userId;
+	}
 
-    public Long getPhoneNumber() {
-        return phoneNumber;
-    }
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 
-    public void setPhoneNumber(Long phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
+	public Long getPhoneNumber() {
+		return phoneNumber;
+	}
 
-    public List<Snack> getSnacks() {
-        return snacks;
-    }
+	public void setPhoneNumber(Long phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
 
-    public void setSnacks(List<Snack> snacks) {
-        this.snacks = snacks;
-    }
+	public List<Snack> getSnacks() {
+		return snacks;
+	}
 
-    public List<Tiffen> getTiffen() {
-        return tiffen;
-    }
+	public void setSnacks(List<Snack> snacks) {
+		this.snacks = snacks;
+	}
 
-    public void setTiffen(List<Tiffen> tiffen) {
-        this.tiffen = tiffen;
-    }
+	public List<Tiffen> getTiffen() {
+		return tiffen;
+	}
+
+	public void setTiffen(List<Tiffen> tiffen) {
+		this.tiffen = tiffen;
+	}
+
+	public List<Lunch> getLunch() {
+		return lunch;
+	}
+
+	public void setLunch(List<Lunch> lunch) {
+		this.lunch = lunch;
+	}
+
 }

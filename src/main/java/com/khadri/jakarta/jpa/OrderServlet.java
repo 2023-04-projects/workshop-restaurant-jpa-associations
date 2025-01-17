@@ -2,12 +2,11 @@ package com.khadri.jakarta.jpa;
 
 import java.io.IOException;
 
+import com.khadri.jakarta.jpa.entity.Lunch;
 import com.khadri.jakarta.jpa.entity.Snack;
 import com.khadri.jakarta.jpa.entity.Tiffen;
 import com.khadri.jakarta.jpa.entity.User;
 import com.khadri.jakarta.jpa.form.CheckoutCartForm;
-import com.khadri.jakarta.jpa.form.SnackForm;
-import com.khadri.jakarta.jpa.form.TiffenForm;
 
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -35,7 +34,7 @@ public class OrderServlet extends HttpServlet {
 		HttpSession session = req.getSession();
 		CheckoutCartForm cart = (CheckoutCartForm) session.getAttribute("checkout");
 
-		if (cart == null || (cart.getSnacks().isEmpty() && cart.getTiffen().isEmpty())) {
+		if (cart == null || (cart.getSnacks().isEmpty() && cart.getTiffen().isEmpty() && cart.getLunch().isEmpty())) {
 			resp.getWriter().write("Your cart is empty!");
 			return;
 		}
@@ -65,8 +64,22 @@ public class OrderServlet extends HttpServlet {
 			repository.insertTiffen(tiffen);
 		});
 
+		cart.getLunch().stream().forEach(lunchForm -> {
+			Lunch lunch = new Lunch();
+
+			lunch.setLunchName(lunchForm.getLunchName());
+			lunch.setQuantity(lunchForm.getQuantity());
+			lunch.setPrice(lunchForm.getPrice());
+			lunch.setTotalPrice(lunchForm.getTotalPrice());
+			lunch.setMenuName(lunchForm.getMenuName());
+			lunch.setUser(user);
+			user.getLunch().add(lunch);
+			repository.insertLunch(lunch);
+		});
+
 		cart.getSnacks().clear();
 		cart.getTiffen().clear();
+		cart.getLunch().clear();
 		session.setAttribute("checkout", cart);
 	}
 }

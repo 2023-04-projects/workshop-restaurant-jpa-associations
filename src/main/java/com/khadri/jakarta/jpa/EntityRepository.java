@@ -1,8 +1,10 @@
 package com.khadri.jakarta.jpa;
 
+import com.khadri.jakarta.jpa.entity.Lunch;
 import com.khadri.jakarta.jpa.entity.Snack;
 import com.khadri.jakarta.jpa.entity.Tiffen;
 import com.khadri.jakarta.jpa.entity.User;
+
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 
@@ -34,4 +36,9 @@ public class EntityRepository {
 
 	}
 
+	public void insertLunch(Lunch lunch) {
+		entityManager.getTransaction().begin();
+		entityManager.persist(lunch);
+		entityManager.getTransaction().commit();
+	}
 }

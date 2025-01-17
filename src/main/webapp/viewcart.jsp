@@ -1,3 +1,4 @@
+<%@page import="com.khadri.jakarta.jpa.form.LunchForm"%>
 <%@page import="com.khadri.jakarta.jpa.form.SnackForm"%>
 <%@page import="com.khadri.jakarta.jpa.form.TiffenForm"%>
 <%@page import="com.khadri.jakarta.jpa.form.CheckoutCartForm"%>
@@ -6,8 +7,8 @@
 
 <%
 CheckoutCartForm cart = (CheckoutCartForm) session.getAttribute("checkout");
-System.out.println("viewcartpage "+(String)session.getAttribute("user"));
-cart.setUserNumber((String)session.getAttribute("user"));
+System.out.println("viewcartpage " + (String) session.getAttribute("user"));
+cart.setUserNumber((String) session.getAttribute("user"));
 
 /* if (cart == null || cart.getSnacks().isEmpty() || cart.getTiffen().isEmpty()) {
     out.println("<h2>Your cart is empty!</h2>");
@@ -103,6 +104,18 @@ form {
 				<td><%=tiffen.getQuantity()%></td>
 				<td><%=tiffen.getPrice()%></td>
 				<td><%=tiffen.getTotalPrice()%></td>
+			</tr>
+			<%
+			}
+			for (LunchForm lunch : cart.getLunch()) {
+			grandTotal += lunch.getTotalPrice();
+			%>
+			<tr>
+				<td>Lunch</td>
+				<td><%=lunch.getLunchName()%></td>
+				<td><%=lunch.getQuantity()%></td>
+				<td><%=lunch.getPrice()%></td>
+				<td><%=lunch.getTotalPrice()%></td>
 			</tr>
 			<%
 			}

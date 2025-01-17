@@ -7,8 +7,17 @@ public class CheckoutCartForm {
 
 	private List<SnackForm> snacks = new ArrayList<>();
 	private List<TiffenForm> tiffen = new ArrayList<>();
+	private List<LunchForm> lunch = new ArrayList<>();
 	private  String  userNumber;
 	
+
+	public List<LunchForm> getLunch() {
+		return lunch;
+	}
+
+	public void setLunch(List<LunchForm> lunch) {
+		this.lunch = lunch;
+	}
 
 	public List<SnackForm> getSnacks() {
 		return snacks;
