@@ -1,6 +1,8 @@
 package com.khadri.jakarta.jpa;
 
 import com.khadri.jakarta.jpa.entity.Lunch;
+import com.khadri.jakarta.jpa.entity.Dinner;
+import com.khadri.jakarta.jpa.entity.Salad;
 import com.khadri.jakarta.jpa.entity.Snack;
 import com.khadri.jakarta.jpa.entity.Tiffen;
 import com.khadri.jakarta.jpa.entity.User;
@@ -10,13 +12,11 @@ import jakarta.persistence.EntityManagerFactory;
 
 public class EntityRepository {
 
-	private EntityManagerFactory factory;
 	private EntityManager entityManager;
 
 	public EntityRepository(EntityManagerFactory factory) {
 		this.entityManager = factory.createEntityManager();
 	}
-
 	public void insertUser(User user) {
 		entityManager.getTransaction().begin();
 		entityManager.persist(user);
@@ -39,6 +39,18 @@ public class EntityRepository {
 	public void insertLunch(Lunch lunch) {
 		entityManager.getTransaction().begin();
 		entityManager.persist(lunch);
+		entityManager.getTransaction().commit();
+	}
+
+	public void insertDinner(Dinner dinner) {
+		entityManager.getTransaction().begin();
+		entityManager.persist(dinner);
+		entityManager.getTransaction().commit();
+	}
+
+	public void insertSalad(Salad salad) {
+		entityManager.getTransaction().begin();
+		entityManager.persist(salad);
 		entityManager.getTransaction().commit();
 	}
 }

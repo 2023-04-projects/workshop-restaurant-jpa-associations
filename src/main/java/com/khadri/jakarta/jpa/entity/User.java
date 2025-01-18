@@ -1,8 +1,18 @@
 package com.khadri.jakarta.jpa.entity;
 
-import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.khadri.jakarta.jpa.form.SaladForm;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "Users")
@@ -23,6 +33,12 @@ public class User {
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Lunch> lunch = new ArrayList<Lunch>();
+
+	private List<Dinner> dinner = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	private List<Salad> salad = new ArrayList<>();
+
 
 	public int getUserId() {
 		return userId;
@@ -48,14 +64,6 @@ public class User {
 		this.snacks = snacks;
 	}
 
-	public List<Tiffen> getTiffen() {
-		return tiffen;
-	}
-
-	public void setTiffen(List<Tiffen> tiffen) {
-		this.tiffen = tiffen;
-	}
-
 	public List<Lunch> getLunch() {
 		return lunch;
 	}
@@ -64,4 +72,29 @@ public class User {
 		this.lunch = lunch;
 	}
 
+
+	public List<Dinner> getDinner() {
+		return dinner;
+	}
+
+	public void setDinner(List<Dinner> dinner) {
+		this.dinner = dinner;
+	}
+
+
+	public List<Tiffen> getTiffen() {
+		return tiffen;
+	}
+
+	public void setTiffen(List<Tiffen> tiffen) {
+		this.tiffen = tiffen;
+	}
+
+	public List<Salad> getSalad() {
+		return salad;
+	}
+
+	public void setSalad(List<Salad> salad) {
+		this.salad = salad;
+	}
 }

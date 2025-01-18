@@ -13,9 +13,10 @@ CheckoutCartForm cart = (CheckoutCartForm) session.getAttribute("checkout");
 int itemCountSnacks = (cart != null && cart.getSnacks() != null) ? cart.getSnacks().size() : 0;
 int itemCountTiffens = (cart != null && cart.getTiffen() != null) ? cart.getTiffen().size() : 0;
 int itemCountLunch = (cart != null && cart.getLunch()!= null) ? cart.getLunch().size() : 0;
-int itemCount = itemCountSnacks + itemCountTiffens + itemCountLunch;
+int itemCountDinner = (cart != null && cart.getDinner() != null) ? cart.getDinner().size() : 0;
+int itemCountSalads = (cart != null && cart.getSalads() != null) ? cart.getSalads().size() : 0;
+int itemCount = itemCountSnacks + itemCountTiffens + itemCountLunch + itemCountSalads+itemCountDinner;
 %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +24,7 @@ int itemCount = itemCountSnacks + itemCountTiffens + itemCountLunch;
 
 <style>
 table {
-	width: 100%;
+	width: 150%;
 	height: 100%;
 	border-collapse: collapse;
 }
@@ -58,6 +59,7 @@ th, td {
 .cart-icon {
 	font-size: 18px;
 	margin-right: 5px;
+
 	color: #e3ac14;
 }
 
@@ -141,8 +143,7 @@ iframe {
 	<table>
 		<tr>
 			<th>
-				<div class="header">
-
+				<div>
 					<h1>KHADRI RESTAURANT</h1>
 					<div class="user-info">
 						User:
@@ -154,10 +155,8 @@ iframe {
 
 						</form>
 						<div class="cart-container">
-							<div class="cart-icon">🛒</div>
 							<div class="cart-count"><%=itemCount%>
-								items <a href="viewcart.jsp" target="content-frame">View
-									Cart</a>
+								items <a href="viewcart.jsp" target="content-frame">🛒</a>
 							</div>
 						</div>
 					</div>
@@ -173,9 +172,14 @@ iframe {
 				<div class="dropdown">
 					<button class="dropbtn">Salads</button>
 					<div class="dropdown-content">
-						<a href="Veg_salad" target="content-frame">Veg_salad</a> <a
-							href="Fruits_salad" target="content-frame">Fruits_salad</a> <a
-							href="Non_veg_salad" target="content-frame">non_veg_salad</a>
+						<a href="salad.jsp?saladname=fruitsalad&saladprice=120"
+							target="content-frame">Fruit Salad</a> <a
+							href="salad.jsp?saladname=vegsalad&saladprice=100"
+							target="content-frame">Veg Salad</a> <a
+							href="salad.jsp?saladname=greeksalad&saladprice=150"
+							target="content-frame">Greek Salad</a> <a
+							href="salad.jsp?saladname=nonvegsalad&saladprice=190"
+							target="content-frame">NonVeg Salad</a>
 					</div>
 				</div>
 			</th>
@@ -211,14 +215,13 @@ iframe {
 				<div class="dropdown">
 					<button class="dropbtn">Snacks</button>
 					<div class="dropdown-content">
-
 						<a href="snack.jsp?snackname=tea&snackprice=10"
 							target="content-frame">Tea</a> <a
 							href="snack.jsp?snackname=coffee&snackprice=15"
 							target="content-frame">Coffee</a> <a
 							href="snack.jsp?snackname=samosa&snackprice=20"
 							target="content-frame">Samosa</a> <a
-							href="snack.jsp?snackname=biscuit&snackprice=100"
+							href="snack.jsp?snackname=biscuit&snackprice=5"
 							target="content-frame">Biscuits</a>
 					</div>
 				</div>
@@ -227,15 +230,18 @@ iframe {
 				<div class="dropdown">
 					<button class="dropbtn">Dinner</button>
 					<div class="dropdown-content">
-						<a href="Chapati" target="content-frame">Chapati</a> <a
-							href="Butternaan" target="content-frame">Butternaan</a> <a
-							href="Rice" target="content-frame">Rice</a>
+						<a href="dinner.jsp?dinnerName=Chapati&price=30"
+						 target="content-frame">Chapati</a> <a
+							href="dinner.jsp?dinnerName=Butternaan&price=20"
+							 target="content-frame">Butternaan</a> <a
+							href="dinner.jsp?dinnerName=Rice&price=40" target="content-frame">Rice</a>
 					</div>
 				</div>
 			</th>
 		</tr>
 	</table>
-	<iframe name="content-frame" src="" id="content-frame"></iframe>
+	<iframe name="content-frame" src="images/Restaurant.jpg"
+		id="content-frame" width="100" height="5"></iframe>
 
 </body>
 </html>
