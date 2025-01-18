@@ -2,6 +2,7 @@ package com.khadri.jakarta.jpa;
 
 import java.io.IOException;
 
+import com.khadri.jakarta.jpa.entity.Lunch;
 import com.khadri.jakarta.jpa.entity.Dinner;
 import com.khadri.jakarta.jpa.entity.Salad;
 import com.khadri.jakarta.jpa.entity.Snack;
@@ -36,7 +37,8 @@ public class OrderServlet extends HttpServlet {
 		HttpSession session = req.getSession();
 		CheckoutCartForm cart = (CheckoutCartForm) session.getAttribute("checkout");
 
-		if (cart == null || (cart.getSnacks().isEmpty() && cart.getTiffen().isEmpty() && cart.getDinner().isEmpty())&&cart.getSalads().isEmpty()) {
+		if (cart == null || (cart.getSnacks().isEmpty() && cart.getTiffen().isEmpty() && cart.getDinner().isEmpty())
+				&& cart.getSalads().isEmpty() && cart.getLunch().isEmpty()) {
 			resp.getWriter().write("Your cart is empty!");
 			return;
 		}
@@ -77,6 +79,17 @@ public class OrderServlet extends HttpServlet {
 			repository.insertDinner(dinner);
 		});
 
+		cart.getLunch().stream().forEach(lunchForm -> {
+			Lunch lunch = new Lunch();
+			lunch.setLunchName(lunchForm.getLunchName());
+			lunch.setQuantity(lunchForm.getQuantity());
+			lunch.setPrice(lunchForm.getPrice());
+			lunch.setTotalPrice(lunchForm.getTotalPrice());
+			lunch.setMenuName(lunchForm.getMenuName());
+			lunch.setUser(user);
+			user.getLunch().add(lunch);
+			repository.insertLunch(lunch);
+		});
 		cart.getSalads().stream().forEach(saladForm -> {
 			Salad salad = new Salad();
 			salad.setSaladName(saladForm.getSaladName());
@@ -88,11 +101,12 @@ public class OrderServlet extends HttpServlet {
 			user.getSalad().add(salad);
 			repository.insertSalad(salad);
 		});
-		
+
 		cart.getDinner().clear();
 		cart.getSnacks().clear();
 		cart.getTiffen().clear();
 		cart.getSalads().clear();
+		cart.getLunch().clear();
 		session.setAttribute("checkout", cart);
 	}
 }

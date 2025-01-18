@@ -1,10 +1,12 @@
 package com.khadri.jakarta.jpa;
 
+import com.khadri.jakarta.jpa.entity.Lunch;
 import com.khadri.jakarta.jpa.entity.Dinner;
 import com.khadri.jakarta.jpa.entity.Salad;
 import com.khadri.jakarta.jpa.entity.Snack;
 import com.khadri.jakarta.jpa.entity.Tiffen;
 import com.khadri.jakarta.jpa.entity.User;
+
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 
@@ -34,18 +36,21 @@ public class EntityRepository {
 
 	}
 
+	public void insertLunch(Lunch lunch) {
+		entityManager.getTransaction().begin();
+		entityManager.persist(lunch);
+		entityManager.getTransaction().commit();
+	}
+
 	public void insertDinner(Dinner dinner) {
 		entityManager.getTransaction().begin();
 		entityManager.persist(dinner);
 		entityManager.getTransaction().commit();
-
 	}
 
 	public void insertSalad(Salad salad) {
 		entityManager.getTransaction().begin();
 		entityManager.persist(salad);
 		entityManager.getTransaction().commit();
-
 	}
-
 }

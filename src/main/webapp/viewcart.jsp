@@ -1,3 +1,4 @@
+<%@page import="com.khadri.jakarta.jpa.form.LunchForm"%>
 <%@page import="com.khadri.jakarta.jpa.form.TiffenForm"%>
 <%@page import="com.khadri.jakarta.jpa.form.SnackForm"%>
 <%@page import="com.khadri.jakarta.jpa.form.DinnerForm"%>
@@ -98,6 +99,18 @@ form {
 				<td><%=tiffen.getQuantity()%></td>
 				<td><%=tiffen.getPrice()%></td>
 				<td><%=tiffen.getTotalPrice()%></td>
+			</tr>
+			<%
+			}
+			for (LunchForm lunch : cart.getLunch()) {
+			grandTotal += lunch.getTotalPrice();
+			%>
+			<tr>
+				<td>Lunch</td>
+				<td><%=lunch.getLunchName()%></td>
+				<td><%=lunch.getQuantity()%></td>
+				<td><%=lunch.getPrice()%></td>
+				<td><%=lunch.getTotalPrice()%></td>
 			</tr>
 			<%
 			}

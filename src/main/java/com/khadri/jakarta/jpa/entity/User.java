@@ -32,6 +32,9 @@ public class User {
 	private List<Tiffen> tiffen = new ArrayList<>();
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	private List<Lunch> lunch = new ArrayList<Lunch>();
+
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Dinner> dinner = new ArrayList<>();
 	
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
@@ -61,6 +64,16 @@ public class User {
 		this.snacks = snacks;
 	}
 
+
+	public List<Lunch> getLunch() {
+		return lunch;
+	}
+
+	public void setLunch(List<Lunch> lunch) {
+		this.lunch = lunch;
+	}
+
+
 	public List<Dinner> getDinner() {
 		return dinner;
 	}
@@ -85,4 +98,5 @@ public class User {
 	public void setSalad(List<Salad> salad) {
 		this.salad = salad;
 	}
+	
 }

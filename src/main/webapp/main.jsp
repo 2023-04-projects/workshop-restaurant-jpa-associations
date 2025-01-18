@@ -12,9 +12,10 @@ if (user == null) {
 CheckoutCartForm cart = (CheckoutCartForm) session.getAttribute("checkout");
 int itemCountSnacks = (cart != null && cart.getSnacks() != null) ? cart.getSnacks().size() : 0;
 int itemCountTiffens = (cart != null && cart.getTiffen() != null) ? cart.getTiffen().size() : 0;
+int itemCountLunch = (cart != null && cart.getLunch()!= null) ? cart.getLunch().size() : 0;
 int itemCountDinner = (cart != null && cart.getDinner() != null) ? cart.getDinner().size() : 0;
 int itemCountSalads = (cart != null && cart.getSalads() != null) ? cart.getSalads().size() : 0;
-int itemCount = itemCountSnacks + itemCountTiffens + itemCountSalads+itemCountDinner;
+int itemCount = itemCountSnacks + itemCountTiffens + itemCountLunch + itemCountSalads+itemCountDinner;
 %>
 <!DOCTYPE html>
 <html>
@@ -202,10 +203,11 @@ iframe {
 				<div class="dropdown">
 					<button class="dropbtn">Lunch</button>
 					<div class="dropdown-content">
-						<a href="Meals" target="content-frame">Meals</a> <a
-							href="Fried_rice" target="content-frame">Fried_rice</a> <a
-							href="Curd_rice" target="content-frame">Curd_rice</a> <a
-							href="Biryani" target="content-frame">Biryani</a>
+					
+						<a href="lunch.jsp?lunchname=meals&lunchprice=150" target="content-frame">Meals</a> <a
+							href="lunch.jsp?lunchname=friedrice&lunchprice=70" target="content-frame">Fried_rice</a> <a
+							href="lunch.jsp?lunchname=curdrice&lunchprice=100" target="content-frame">Curd_rice</a> <a
+							href="lunch.jsp?lunchname=biryani&lunchprice=500" target="content-frame">Biryani</a>
 					</div>
 				</div>
 			</th>
