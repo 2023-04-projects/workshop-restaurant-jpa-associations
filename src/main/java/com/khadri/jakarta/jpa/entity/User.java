@@ -34,11 +34,11 @@ public class User {
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Lunch> lunch = new ArrayList<Lunch>();
 
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Dinner> dinner = new ArrayList<>();
 	
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Salad> salad = new ArrayList<>();
-
 
 	public int getUserId() {
 		return userId;
@@ -63,6 +63,7 @@ public class User {
 	public void setSnacks(List<Snack> snacks) {
 		this.snacks = snacks;
 	}
+
 
 	public List<Lunch> getLunch() {
 		return lunch;
@@ -97,4 +98,5 @@ public class User {
 	public void setSalad(List<Salad> salad) {
 		this.salad = salad;
 	}
+	
 }

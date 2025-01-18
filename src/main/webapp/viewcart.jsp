@@ -10,7 +10,6 @@
 CheckoutCartForm cart = (CheckoutCartForm) session.getAttribute("checkout");
 System.out.println("viewcartpage " + (String) session.getAttribute("user"));
 cart.setUserNumber((String) session.getAttribute("user"));
-
 %>
 <!DOCTYPE html>
 <html>
